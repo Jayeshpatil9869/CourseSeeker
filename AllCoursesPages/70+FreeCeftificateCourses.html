@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduHome - Education Is About Academic Excellence</title>
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- 
+    - preload images
+  -->
+  <link rel="preload" as="image" href="./assets/images/hero-banner.png">
+  <link rel="preload" as="image" href="./assets/images/hero-abs-1.png" media="min-width(768px)">
+  <link rel="preload" as="image" href="./assets/images/hero-abs-2.png" media="min-width(768px)">
+
+
+  <style>
+    :root {
+
+      --ultramarine-blue_10: hsla(235, 70%, 60%, 0.1);
+      --ultramarine-blue: #48c6ba;
+      --orange-peel_10: hsla(36, 100%, 55%, 0.1);
+      --space-cadet_20: hsla(248, 32%, 23%, 0.2);
+      --space-cadet_80: hsla(247, 35%, 19%, 0.8);
+      --space-cadet-2: hsl(247, 35%, 19%);
+      --old-lavender: hsl(251, 9%, 46%);
+      --orange-peel: hsl(36, 100%, 55%);
+      --tart-orange: hsl(0, 100%, 63%);
+      --light-gray: hsl(0, 0%, 80%);
+      --cultured-1: hsl(0, 0%, 96%);
+      --cultured-2: hsl(0, 0%, 93%);
+      --coral_10: hsla(14, 95%, 66%, 0.1);
+      --white_10: hsla(0, 0%, 100%, 0.1);
+      --black_80: hsla(0, 0%, 0%, 0.8);
+      --pumpkin: hsl(26, 98%, 49%);
+      --white: hsl(0, 0%, 100%);
+
+      /**
+ * typography
+ */
+
+      --ff-urbanist: 'Urbanist', sans-serif;
+
+      --fs-1: 4rem;
+      --fs-2: 3.2rem;
+      --fs-3: 2.4rem;
+      --fs-4: 2rem;
+      --fs-5: 1.8rem;
+      --fs-6: 1.4rem;
+
+      --fw-500: 500;
+      --fw-600: 600;
+      --fw-700: 700;
+      --fw-800: 800;
+
+      /**
+ * spacing
+ */
+
+      --section-padding: 20px;
+
+      /**
+ * box shadow
+ */
+
+      --shadow-1: 0 8px 20px hsla(0, 0%, 0%, 0.06);
+      --shadow-2: 0px 4px 10px hsla(0, 0%, 0%, 0.05);
+
+      /**
+ * border radius
+ */
+
+      --radius-4: 4px;
+      --radius-6: 6px;
+
+      /**
+ * transition
+ */
+
+      --transition-1: 0.25s ease;
+      --transition-2: 0.5s ease;
+      --cubic-in: cubic-bezier(0.51, 0.03, 0.64, 0.28);
+      --cubic-out: cubic-bezier(0.33, 0.85, 0.4, 0.96);
+
+    }
+
+
+
+
+
+    /*-----------------------------------*\
+#RESET
+\*-----------------------------------*/
+
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    a,
+    img,
+    span,
+    input,
+    button,
+    ion-icon {
+      display: block;
+    }
+
+    img {
+      height: auto;
+    }
+
+    input,
+    button {
+      background: none;
+      border: none;
+      font: inherit;
+    }
+
+    input {
+      width: 100%;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    ion-icon {
+      pointer-events: none;
+    }
+
+    address {
+      font-style: normal;
+    }
+
+    html {
+      font-family: var(--ff-urbanist);
+      font-size: 10px;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--white);
+      color: var(--old-lavender);
+      font-size: 1.6rem;
+      font-weight: var(--fw-500);
+      line-height: 1.6;
+    }
+
+    :focus-visible {
+      outline-offset: 4px;
+    }
+
+    ::-webkit-scrollbar {
+      width: 12px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: var(--cultured-1);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: hsl(0, 0%, 80%);
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background-color: hsl(0, 0%, 70%);
+    }
+
+
+
+
+
+    /*-----------------------------------*\
+#REUSED STYLE
+\*-----------------------------------*/
+
+    .container {
+      padding-inline: 15px;
+    }
+
+    .abs-img {
+      display: none;
+    }
+
+    .section-subtitle {
+      color: #40B3A2;
+      text-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+      text-transform: uppercase;
+      font-weight: var(--fw-600);
+      font-size: 25px;
+      letter-spacing: 2px;
+      margin-block-end: 5px;
+    }
+
+    .h1,
+    .h2,
+    .h3 {
+      color: var(--space-cadet-2);
+      line-height: 1.3;
+      font-weight: var(--fw-600);
+      text-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+    }
+
+    .h1 {
+      font-size: var(--fs-1);
+    }
+
+    .h2 {
+      font-size: var(--fs-2);
+    }
+
+    .h3 {
+      font-size: var(--fs-4);
+      font-weight: var(--fw-700);
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 10px;
+      border-radius: var(--radius-6);
+      transition: var(--transition-1);
+    }
+
+    .btn-primary {
+      background-color: var(--ultramarine-blue);
+      color: var(--white);
+    }
+
+    .btn-primary:is(:hover, :focus) {
+      background-color: var(--space-cadet-2);
+    }
+
+    .btn-secondary {
+      background-color: var(--white);
+      color: var(--ultramarine-blue);
+    }
+
+    .btn-secondary:is(:hover, :focus) {
+      background-color: var(--pumpkin);
+      color: var(--white);
+    }
+
+    .w-100 {
+      width: 100%;
+    }
+
+    .section {
+      padding-block: var(--section-padding);
+    }
+
+    .grid-list {
+      display: grid;
+      gap: 30px;
+    }
+
+    .img-cover {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /*-----------------------------------*\
+#CATEGORY
+\*-----------------------------------*/
+    .course-card {
+      /* border: 1px solid black; */
+      box-shadow: rgba(88, 89, 90, 0.225) 0px 8px 24px;
+
+    }
+
+    .category :is(.section-subtitle, .section-title) {
+      text-align: center;
+    }
+
+    .category .section-title {
+      margin-block-end: 60px;
+    }
+
+    .category-card {
+      --title-color: var(--space-cadet-2);
+      --meta-color: var(--old-lavender);
+      --icon-color: var(--ultramarine-blue);
+      --icon-bg: var(--white);
+
+      background-color: var(--cultured-1);
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      border-radius: var(--radius-6);
+      transition: var(--transition-1);
+    }
+
+    .category-card .card-icon {
+      background-color: var(--icon-bg);
+      color: var(--icon-color);
+      font-size: 30px;
+      height: 60px;
+      min-width: 60px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--radius-4);
+      transition: var(--transition-1);
+    }
+
+
+    .category-card .card-title {
+      color: var(--title-color);
+    }
+
+    .category-card .card-meta {
+      color: var(--meta-color);
+      font-weight: var(--fw-600);
+      margin-block-start: 5px;
+    }
+
+    .category-card:is(:hover, :focus-within) {
+      --title-color: var(--white);
+      --meta-color: var(--white);
+      --icon-color: var(--white);
+      --icon-bg: var(--white_10);
+
+      background-color: var(--ultramarine-blue);
+    }
+
+
+
+
+    /*-----------------------------------*\
+#COURSE
+\*-----------------------------------*/
+
+    .course {
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .course :is(.section-subtitle, .section-title) {
+      text-align: center;
+    }
+
+    .course .grid-list {
+      margin-block: 60px;
+    }
+
+    .course-card {
+      position: relative;
+      background-color: var(--white);
+      border-radius: var(--radius-6);
+      overflow: hidden;
+    }
+
+    .course-card .card-banner {
+      background-color: var(--light-gray);
+      aspect-ratio: 370 / 270;
+      overflow: hidden;
+    }
+
+    .course-card .card-banner img {
+      transition: var(--transition-2);
+    }
+
+    .course-card:is(:hover, :focus-within) .card-banner img {
+      transform: scale(1.1);
+    }
+
+    .course-card .card-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 15px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+
+    .course-card .badge {
+      background-color: var(--white);
+      color: var(--ultramarine-blue);
+      font-size: var(--fs-6);
+      font-weight: var(--fw-600);
+      padding: 4px 12px;
+      border-radius: var(--radius-4);
+    }
+
+    .course-card .whishlist-btn {
+      background-color: var(--space-cadet_20);
+      color: var(--white);
+      font-size: 18px;
+      padding: 6px;
+      margin: 5px;
+      border-radius: 50%;
+      backdrop-filter: blur(10px);
+    }
+
+    .course-card .whishlist-btn.active {
+      color: var(--tart-orange);
+    }
+
+    .course-card .whishlist-btn:active ion-icon {
+      transform: scale(0.9);
+    }
+
+    .course-card .card-content {
+      padding: 25px 20px;
+    }
+
+    .course-card .card-meta-list {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .course-card .card-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .course-card .card-meta-item ion-icon {
+      --ionicon-stroke-width: 40px;
+    }
+
+    .course-card .card-meta-text {
+      font-weight: var(--fw-500);
+    }
+
+    .course-card .card-title {
+      line-height: 1.6;
+      margin-block: 10px 15px;
+      transition: var(--transition-1);
+    }
+
+    .course-card .card-title:is(:hover, :focus) {
+      color: var(--ultramarine-blue);
+    }
+
+    .course-card .rating {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      color: var(--orange-peel);
+      font-size: 18px;
+    }
+
+    .course-card .rating-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 110px;
+      margin-block-end: 25px;
+    }
+
+    .course-card .card-footer {
+      padding-block-start: 25px;
+      border-block-start: 1px solid var(--cultured-2);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 80px;
+    }
+
+    .course-card .card-price {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .course-card .card-price .span {
+      color: var(--ultramarine-blue);
+      font-size: var(--fs-4);
+      font-weight: var(--fw-700);
+    }
+
+    .course .btn {
+      margin-inline: auto;
+    }
+
+
+
+
+
+    /*-----------------------------------*\
+#MEDIA QUERIES
+\*-----------------------------------*/
+
+    /**
+* responsive for larger than 575px screen
+*/
+
+    @media (min-width: 575px) {
+      :root {
+        --fs-2: 4rem;
+      }
+
+      .container {
+        max-width: 540px;
+        margin-inline: auto;
+      }
+    }
+
+
+    @media (min-width: 768px) {
+      .container {
+        max-width: 740px;
+      }
+
+      .grid-list {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .course-card .card-content {
+        padding-inline: 30px;
+        padding-block-end: 30px;
+      }
+    }
+
+
+
+
+
+    /**
+* responsive for larger than 992px screen
+*/
+
+    @media (min-width: 992px) {
+      :root {
+        --fs-1: 5rem;
+
+      }
+
+      .container {
+        max-width: 960px;
+      }
+
+
+
+
+      /**
+ * CATEGORY
+ */
+
+      .category .grid-list {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .category-card {
+        height: 100%;
+      }
+
+
+
+      /**
+ * CTA
+ */
+
+      .cta .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 30px;
+      }
+
+      .cta .section-text {
+        margin-block: 30px;
+      }
+
+      .cta-banner {
+        margin-block-end: 0;
+        order: 1;
+      }
+
+
+
+      /**
+ * EVENT
+ */
+
+      .event-card .card-address {
+        --fs-6: 1.6rem;
+      }
+
+
+
+      /**
+ * NEWSLETTER
+ */
+
+      .newsletter .section-title {
+        margin-block-end: 60px;
+      }
+
+      .newsletter-form {
+        max-width: 650px;
+        margin-inline: auto;
+      }
+
+
+
+      /**
+ * FOOTER
+ */
+
+      .footer-top {
+        grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      }
+
+    }
+
+
+
+
+
+    /**
+* responsive for larger than 1200px screen
+*/
+
+    @media (min-width: 1200px) {
+
+      /**
+ * CUSTOM PROPERTY
+ */
+
+      :root {
+
+        /**
+   * typography
+   */
+
+        --fs-1: 6.8rem;
+
+      }
+
+      .container {
+        max-width: 1180px;
+      }
+
+      @keyframes slide-in {
+        0% {
+          transform: translateY(-100%);
+        }
+
+        100% {
+          transform: translateY(0);
+        }
+      }
+
+      :is(.course, .event) .grid-list {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+
+
+    * {
+      margin: auto;
+      padding: auto;
+    }
+
+    .top {
+      width: 100%;
+
+      border-bottom: 2px solid #f0f0f0;
+    }
+
+    .top div {
+      width: 1200px;
+      color: #000000;
+      font-family: calibri;
+      padding: 10px;
+      /* text-align: right; */
+    }
+
+    .logo {
+      width: 100%;
+      border-bottom: 2px solid #f0f0f0;
+    }
+
+    .logo div {
+      width: 1200px;
+      font-family: calibri;
+      padding: 10px;
+      text-align: left;
+    }
+
+    .logo div table a {
+      padding: 10px;
+      text-decoration: none;
+      color: gray;
+    }
+
+    .logo div table a:hover {
+      color: #428bca;
+      border-bottom: 2px solid gray;
+    }
+
+    .middle {
+      width: 100%;
+      border-bottom: 2px solid #f0f0f0;
+    }
+
+    .middle div {
+      width: 1200px;
+      height: 400px;
+      font-family: calibri;
+    }
+
+    .middle div p {
+      width: 1000px;
+      font-weight: bold;
+      height: 300px;
+      color: #fff;
+      opacity: 0.2;
+      font-size: 50px;
+      background-color: #000;
+    }
+
+    .bottom {
+      width: 100%;
+      /* border-bottom: 2px solid #f0f0f0; */
+    }
+
+    .bottom div {
+      width: 1200px;
+      color: #fff;
+      font-family: calibri;
+      text-align: right;
+    }
+
+    .bottom div table {
+      width: 1100px;
+      text-align: justify;
+      color: gray;
+      font-size: 20px;
+    }
+
+    .bottom_up {
+      width: 100%;
+      border-bottom: 2px solid #f0f0f0;
+    }
+
+    .bottom_up div {
+      padding-top: 20px;
+      width: 1200px;
+      text-align: center;
+      font-family: forte;
+      font-size: 30px;
+      padding-bottom: 20px;
+    }
+
+    .bottom_up div table {
+      padding-top: 30px;
+      font-size: 30px;
+      width: 1100px;
+      text-align: center;
+      font-family: calibri;
+
+    }
+
+    input[type="text"] {
+      padding: 12px;
+      width: 250px;
+    }
+
+    select {
+      padding: 12px;
+      width: 250px;
+    }
+
+    textarea {
+      padding: 50px;
+      width: 550px;
+    }
+
+
+
+
+    .nav_down {
+      width: 100%;
+      background-color: #000000 !important;
+      border-bottom: 2px solid #f0f0f0;
+    }
+
+    .nav_down div {
+      width: 1200px;
+      color: #fff;
+      background-color: #000;
+      font-family: calibri;
+      padding: 10px;
+      text-align: left;
+    }
+
+    #lightTable {
+      margin-left: 95px;
+      margin-bottom: 0px;
+    }
+
+    table {
+      width: 40%;
+      margin: 20px;
+    }
+
+    th,
+    td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    th {
+      background: linear-gradient(rgba(72, 200, 188, 1), rgba(74, 243, 226, 1) 100%);
+      color: white;
+      cursor: pointer;
+    }
+
+
+
+
+    .pagination {
+      display: inline-block;
+      margin-left: 80px;
+      margin-top: 18px;
+      margin-bottom: 30px;
+    }
+
+    .pagination a {
+      color: black;
+      float: left;
+      padding: 8px 16px;
+      text-decoration: none;
+      margin-left: 5px;
+      margin-bottom: 20px;
+    }
+
+    .page-link {
+      position: relative;
+      padding: 10px 20px;
+      border-radius: 7px;
+      /* border: 1px solid rgb(0, 0, 0); */
+      font-size: 14px;
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 2px;
+      background: transparent;
+      color: #fff;
+      overflow: hidden;
+      box-shadow: 0 0 0 0 transparent;
+      -webkit-transition: all 0.2s ease-in;
+      -moz-transition: all 0.2s ease-in;
+      transition: all 0.2s ease-in;
+      text-decoration: none;
+      /* Remove default underline for links */
+    }
+
+    .page-link:hover {
+      background: linear-gradient(to right, #48c6ba 0%, #4af3e2 100%);
+      transition: 1.0s ease;
+      box-shadow: 0 0px 13px rgba(0, 0, 0, 0.3);
+
+
+      /* box-shadow: 0 0 30px 5px rgba(0, 142, 236, 0.815); */
+      -webkit-transition: all 0.2s ease-out;
+      -moz-transition: all 0.2s ease-out;
+      transition: all 0.2s ease-out;
+    }
+
+    .page-link:hover::before {
+      -webkit-animation: sh02 0.5s 0s linear;
+      -moz-animation: sh02 0.5s 0s linear;
+      animation: sh02 0.5s 0s linear;
+    }
+
+
+
+
+    .search-box {
+      margin-left: 7%;
+      font-size: 7px;
+      border: solid 0.3em #000000;
+      display: inline-block;
+      position: relative;
+      border-radius: 2.5em;
+      margin-top: 15px;
+      /* background-color: #fff; */
+      box-shadow: 0 0px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .search-box input[type=text] {
+      /* font-family: inherit; */
+      /* font-weight: bold; */
+      width: 1.5em;
+      height: 2.5em;
+      padding: 0.3em 2.1em 0.3em 0.4em;
+      border: none;
+      box-sizing: border-box;
+      border-radius: 2.5em;
+      transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55) 150ms;
+    }
+
+    .search-box input[type=text]:focus {
+      outline: none;
+    }
+
+    .search-box input[type=text]:focus,
+    .search-box input[type=text]:not(:placeholder-shown) {
+      width: 13em;
+      transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    }
+
+    .search-box input[type=text]:focus+button[type=reset],
+    .search-box input[type=text]:not(:placeholder-shown)+button[type=reset] {
+      transform: rotate(-45deg) translateY(0);
+      transition: transform 150ms ease-out 800ms;
+    }
+
+    .search-box input[type=text]:focus+button[type=reset]:after,
+    .search-box input[type=text]:not(:placeholder-shown)+button[type=reset]:after {
+      opacity: 1;
+      transition: top 150ms ease-out 950ms, right 150ms ease-out 950ms, opacity 150ms ease 950ms;
+    }
+
+    .search-box button[type=reset] {
+
+      background-color: transparent;
+      width: 1.6em;
+      font-size: 12px;
+      height: 1.9em;
+      border: 0;
+      padding: 0;
+      outline: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 0.55em;
+      right: 0.55em;
+      transform: rotate(-45deg) translateY(2.2em);
+      transition: transform 150ms ease-out 150ms;
+    }
+
+    .search-box button[type=reset]:before,
+    .search-box button[type=reset]:after {
+      content: "";
+      background-color: #000000;
+      width: 0.3em;
+      height: 1.4em;
+      position: absolute;
+    }
+
+    .search-box button[type=reset]:after {
+      transform: rotate(90deg);
+      opacity: 0;
+      transition: transform 150ms ease-out, opacity 150ms ease-out;
+    }
+
+    /* .top a {
+text-decoration: none;
+font-size: 24px;
+} */
+
+    .top a {
+      text-decoration: none;
+      color: #000000;
+      /* Default link color */
+      font-weight: bold;
+      font-size: 22px;
+      position: relative;
+      transition: color 0.3s ease;
+      /* Smooth color transition */
+    }
+
+    .top a::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background-color: #40B3A2;
+      /* Color for the underline */
+      bottom: 0;
+      left: 0;
+      transform: scaleX(0);
+      transform-origin: bottom right;
+      transition: transform 0.5s ease;
+      /* Underline animation */
+    }
+
+    .top a:hover {
+      color: #40B3A2;
+      /* Change link color on hover */
+    }
+
+    .top a:hover::before {
+      transform: scaleX(1);
+      /* Expand the underline on hover */
+      transform-origin: bottom left;
+    }
+
+
+
+    .btn {
+
+      transition: all 0.2s linear;
+
+      margin-top: 15px;
+
+      float: right;
+      margin-right: 28px;
+      margin-left: 28px;
+    }
+
+    .btn>svg {
+      margin-right: 5px;
+      margin-left: 5px;
+      font-size: 20px;
+      transition: all 0.4s ease-in;
+    }
+
+    .btn:hover>svg {
+      font-size: 1.2em;
+      transform: translateX(-5px);
+    }
+
+    .btn:hover {
+      background-image: linear-gradient(to right, #48c6ba 0%, #4af3e2 100%);
+      box-shadow: 9px 9px 33px #d1d1d1, -9px -9px 33px #ffffff;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="top">
+    <button class="btn">
+      <svg height="16" width="16" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1024 1024">
+        <path
+          d="M874.690416 495.52477c0 11.2973-9.168824 20.466124-20.466124 20.466124l-604.773963 0 188.083679 188.083679c7.992021 7.992021 7.992021 20.947078 0 28.939099-4.001127 3.990894-9.240455 5.996574-14.46955 5.996574-5.239328 0-10.478655-1.995447-14.479783-5.996574l-223.00912-223.00912c-3.837398-3.837398-5.996574-9.046027-5.996574-14.46955 0-5.433756 2.159176-10.632151 5.996574-14.46955l223.019353-223.029586c7.992021-7.992021 20.957311-7.992021 28.949332 0 7.992021 8.002254 7.992021 20.957311 0 28.949332l-188.073446 188.073446 604.753497 0C865.521592 475.058646 874.690416 484.217237 874.690416 495.52477z">
+        </path>
+      </svg>
+      <span onclick=" goBack()">Go Back</span>
+    </button>
+  </div>
+
+
+  <div class="bottom">
+    <div>
+      <table border="0">
+        <tr>
+          <td width="700px">
+            <font color="#000"> Welcome to <mark>70+ Free Certificate Courses</mark> </font> <br> <br>
+
+            <font color="#000" size="6px">Elevate Your Knowledge with 70+ Free Certificate Courses
+            </font> <br>
+            <br>
+
+            designed to empower you with valuable skills and knowledge across a wide range of subjects.
+            These courses are not only free but also grant you a certificate upon successful completion,
+            helping you enhance your qualifications and boost your career prospects. Whether you're
+            looking to improve your job prospects, switch careers, or simply expand your horizons, our
+            diverse offerings have something for everyone. Explore the world of learning and seize the
+            opportunity to earn certificates in areas that matter to you.With over 70 free certificate
+            courses to choose from, you can delve into a multitude of subjects that pique your interest.
+            Whether you're passionate about technology, business, health, or the arts, we've got you
+            covered. Our courses cover a wide spectrum, including programming, digital marketing, data
+            science, graphic design, project management, and many more. These courses are structured to
+            cater to learners of all levels, whether you're a beginner or looking to advance your
+            existing knowledge. The world of learning is at your fingertips, and the certificates you
+            earn will validate your accomplishments. <br><br>
+
+            <br>
+          </td>
+
+
+          <td style="padding-left:20px;">
+            <!-- <img src="https://digitaldefynd.com/wp-content/uploads/2021/07/digital-defynd-1536x864.png"width="400px"></td> -->
+            <img src="/coursImg/AllCourse-70+FreeCourse.jpeg" width="400px">
+          </td>
+        </tr>
+
+
+      </table>
+    </div>
+  </div>
+
+  <div class="bottom">
+    <div>
+      <table border="0">
+        <tr>
+          <td width="700px">
+
+            <font color="#000" size="6px">Upgrade Your Skills, Enhance Your Career
+
+            </font> <br> <br>
+            In today's competitive job market, having certificates that prove your expertise is
+            invaluable. Our free courses are not only an opportunity to gain knowledge but also a
+            gateway to career advancement. Employers and institutions worldwide recognize the value of
+            these certificates, and they can make a substantial difference in your career trajectory.
+            Don't miss the chance to upgrade your skills, boost your confidence, and open doors to new
+            opportunities. Join us on this educational journey, explore our 70+ free certificate
+            courses, and take your future into your own hands. Your journey to personal and professional
+            growth starts here!<br>
+
+            <br>
+          </td>
+
+
+          <!-- <td style="padding-left:20px;"> </td> -->
+        </tr>
+
+
+      </table>
+    </div>
+  </div>
+
+
+ 
+
+
+
+  <section class="section course" id="courses" aria-label="course"
+    style="background-image: url('./assets/images/course-bg.jpg')">
+    <div class="container">
+
+      <p class="section-subtitle">Popular Courses</p>
+      <h2 class="h2 section-title">Free Certificate Courses</h2>
+      <ul class="grid-list">
+
+        <li>
+          <div class="course-card">
+            <figure class="card-banner">
+              <img
+                src="/coursImg/70+Free-html-css-js.jpeg"
+                width="370" height="270" loading="lazy" alt="HTML, CSS, and Javascript for Web Developers"
+                class="img-cover">
+            </figure>
+            <div class="card-content">
+              <h3 class="h3">
+                <a href="https://www.coursera.org/learn/html-css-javascript-for-web-developers" class="card-title">HTML,
+                  CSS, and Javascriptfor Web Developers</a>
+              </h3>
+              <div class="rating-wrapper">
+                <div class="rating">
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                </div>
+                <span class="rating-text">(15.8k Reviews)</span>
+              </div>
+              <div class="card-footer">
+                <div class="card-price">
+                  <a href="https://www.coursera.org/learn/html-css-javascript-for-web-developers"><span
+                      class="span">Enroll</span></a>
+                </div>
+                <div class="card-meta-item">
+                  <span class="card-meta-text">free With certificate</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+
+
+  
+        <li>
+          <div class="course-card">
+            <figure class="card-banner">
+              <img
+                src="/coursImg/70+Free-Python.jpeg"
+                width="370" height="270" loading="lazy" alt="Python Fundamentals for Beginners" class="img-cover">
+            </figure>
+            <div class="card-content">
+              <h3 class="h3">
+                <a href="https://www.mygreatlearning.com/academy/learn-for-free/courses/python-fundamentals-for-beginners"
+                  class="card-title">Python Fundamentals for Beginners</a>
+              </h3>
+              <div class="rating-wrapper">
+                <div class="rating">
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                </div>
+                <span class="rating-text">(5.6k Reviews)</span>
+              </div>
+              <div class="card-footer">
+                <div class="card-price">
+                  <a
+                    href="https://www.mygreatlearning.com/academy/learn-for-free/courses/python-fundamentals-for-beginners"><span
+                      class="span">Enroll</span></a>
+                </div>
+                <div class="card-meta-item">
+                  <span class="card-meta-text">Free With certificate</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+
+
+        <li>
+          <div class="course-card">
+            <figure class="card-banner">
+              <img src="/coursImg/70+Free-Data.jpeg" width="370" height="270" loading="lazy"
+                alt="Business Analytics: Excel Macros & VBA for Beginners" class="img-cover">
+            </figure>
+            <div class="card-content">
+              <h3 class="h3">
+                <a href="https://www.simplilearn.com/free-excel-macros-vba-course-skillup?utm_source=SkillUp_HomePage&utm_medium=explore_free_courses&utm_campaign=Business%20Analytics:%20Excel%20Macros%20&%20VBA%20for%20%20Beginners" class="card-title">Business Analytics: Excel Macros & VBA for Beginners
+
+                </a>
+              </h3>
+              <div class="rating-wrapper">
+                <div class="rating">
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                </div>
+                <span class="rating-text">(9.4k Review)</span>
+              </div>
+              <div class="card-footer">
+                <div class="card-price">
+                  <a href="https://www.simplilearn.com/free-excel-macros-vba-course-skillup?utm_source=SkillUp_HomePage&utm_medium=explore_free_courses&utm_campaign=Business%20Analytics:%20Excel%20Macros%20&%20VBA%20for%20%20Beginners"><span class="span">Enroll</span></a>
+                </div>
+                <div class="card-meta-item">
+                  <span class="card-meta-text">Free With certificate</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+        <li>
+          <div class="course-card">
+            <figure class="card-banner">
+              <img src="/coursImg/70+Free-Git.jpeg" width="370" height="270" loading="lazy"
+                alt="Git & GitHub Crash Course: Create a Repository From Scratch" class="img-cover">
+            </figure>
+            <div class="card-content">
+              <h3 class="h3">
+                <a href="https://www.udemy.com/course/git-and-github-crash-course-creating-a-repository-from-scratch/" class="card-title">Git & GitHub Crash Course: Create a Repository From Scratch </a>
+              </h3>
+              <div class="rating-wrapper">
+                <div class="rating">
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                </div>
+                <span class="rating-text">(10k Review)</span>
+              </div>
+              <div class="card-footer">
+                <div class="card-price">
+                  <a href="https://www.udemy.com/course/git-and-github-crash-course-creating-a-repository-from-scratch/"><span class="span">Enroll</span></a>
+                </div>
+                <div class="card-meta-item">
+                  <span class="card-meta-text">Free With certificate</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+
+
+
+
+        <li>
+          <div class="course-card">
+            <figure class="card-banner">
+              <img src="/coursImg/70+Free-Course.jpeg" width="370" height="270" loading="lazy"
+                alt="Learn programming from basics in this free online training" class="img-cover">
+            </figure>
+            <div class="card-content">
+              <h3 class="h3">
+                <a href="" class="card-title">Learn programming from basics in this free online training </a>
+              </h3>
+              <div class="rating-wrapper">
+                <div class="rating">
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                </div>
+                <span class="rating-text">(7.4k Review)</span>
+              </div>
+              <div class="card-footer">
+                <div class="card-price">
+                  <a href=""><span class="span">Enroll</span></a>
+                </div>
+                <div class="card-meta-item">
+                  <span class="card-meta-text">Free With certificate</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+
+
+
+        <li>
+          <div class="course-card">
+            <figure class="card-banner">
+              <img src="/coursImg/70+Free-BlockC.jpeg" width="370" height="270" loading="lazy"
+                alt="Blockchain Basics" class="img-cover">
+            </figure>
+            <div class="card-content">
+              <h3 class="h3">
+                <a href="" class="card-title">Blockchain Basics </a><br>
+              </h3>
+              <div class="rating-wrapper">
+                <div class="rating">
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star"></ion-icon>
+                </div>
+                <span class="rating-text">(9.4k Review)</span>
+              </div>
+              <div class="card-footer">
+                <div class="card-price">
+                  <a href=""><span class="span">Enroll</span></a>
+                </div>
+                <div class="card-meta-item">
+                  <span class="card-meta-text">Free With certificate</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+
+
+
+
+
+        
+
+
+  </section>
+
+
+  
+  <div class="nav_down">
+    <div>
+        &copy; CourseSeeker, Find The Best Courses Online...
+    </div>
+</div>
+
+
+  <script>
+
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>

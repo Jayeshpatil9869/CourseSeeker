@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/Css/style.css">
+  <link rel="stylesheet" href="/Css/Footer.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+  <title>CourseSeeker</title>
+
+
+
+  <style>
+    .outer-container {
+      background: #ffffff;
+      display: flex;
+      margin-top: -41px;
+      justify-content: center;
+    }
+
+    .inner-container {
+      display: flex;
+      align-items: center;
+      max-width: 90%;
+      margin-top: 50px;
+      box-shadow: 0 0px 13px rgba(0, 0, 0, 0.2);
+    }
+
+    .left-side {
+      width: 60%;
+    }
+
+    .right-side {
+      margin-bottom: 25%;
+      width: 50%;
+      padding: 20px;
+    }
+
+
+    h3 {
+      font-size: 22px;
+      margin: 12px 0 12px;
+      text-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+    }
+
+    img {
+      box-shadow: 0 0px 13px rgba(0, 0, 0, 0.2);
+      max-width: 100%;
+      margin-top: 10px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      margin: 10px 0;
+    }
+
+    div.table-title {
+      display: block;
+      margin-left: 0px;
+      max-width: 600px;
+      padding: 5px;
+      width: 100%;
+    }
+
+    .table-title h3 {
+      color: #000000;
+      font-size: 25px;
+      margin-top: 12px;
+      font-weight: 400;
+      font-style: normal;
+      font-family: "Roboto", helvetica, arial, sans-serif;
+      text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+      text-transform: uppercase;
+    }
+
+
+    /*** Table Styles **/
+
+    .table-fill {
+      background: white;
+      border-radius: 3px;
+      border-collapse: collapse;
+      height: 320px;
+
+      max-width: 600px;
+      padding: 5px;
+      width: 100%;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      animation: float 5s infinite;
+    }
+
+    th {
+      color: #D5DDE5;
+      background: #1b1e24;
+      border-bottom: 4px solid #9ea7af;
+      border-right: 1px solid #343a45;
+      font-size: 23px;
+      font-weight: 100;
+      padding: 24px;
+      text-align: left;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+      vertical-align: middle;
+    }
+
+    th:first-child {
+      border-top-left-radius: 3px;
+    }
+
+    th:last-child {
+      border-top-right-radius: 3px;
+      border-right: none;
+    }
+
+    tr {
+      border-top: 1px solid #C1C3D1;
+      border-bottom: 1px solid #C1C3D1;
+      color: #666B85;
+      font-size: 16px;
+      font-weight: normal;
+      text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
+    }
+
+    tr:hover td {
+      background: #e6e6e6;
+      color: #FFFFFF;
+      border-top: 1px solid #22262e;
+    }
+
+    tr:first-child {
+      border-top: none;
+    }
+
+    tr:last-child {
+      border-bottom: none;
+    }
+
+    tr:nth-child(odd) td {
+      background: #EBEBEB;
+    }
+
+    tr:nth-child(odd):hover td {
+      background: #cfcfcf;
+    }
+
+    tr:last-child td:first-child {
+      border-bottom-left-radius: 3px;
+    }
+
+    tr:last-child td:last-child {
+      border-bottom-right-radius: 3px;
+    }
+
+    td {
+      background: #FFFFFF;
+      padding: 5px;
+      text-align: left;
+      vertical-align: middle;
+      font-weight: 300;
+      font-size: 18px;
+      text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+      border-right: 1px solid #C1C3D1;
+    }
+
+    td:last-child {
+      border-right: 0px;
+    }
+
+    td a {
+      text-decoration: none;
+    }
+
+    td a:hover {
+      color: #40B3A2;
+    }
+
+    th.text-left {
+      text-align: left;
+    }
+
+    th.text-center {
+      text-align: center;
+    }
+
+    th.text-right {
+      text-align: right;
+    }
+
+    td.text-left {
+      text-align: left;
+    }
+
+    td.text-center {
+      text-align: center;
+    }
+
+    td.text-right {
+      text-align: right;
+    }
+
+
+
+    .nav_down {
+      width: 100%;
+      background-color: #000000 !important;
+      border-bottom: 2px solid #f0f0f0;
+    }
+
+    .nav_down div {
+      width: 1200px;
+      color: #fff;
+      background-color: #000;
+      font-family: calibri;
+      padding: 10px;
+      text-align: left;
+      margin-top: 30px;
+    }
+
+
+
+    button {
+      display: flex;
+      height: 3em;
+      width: 100px;
+      align-items: center;
+      justify-content: center;
+      background-color: #eeeeee4b;
+      border-radius: 3px;
+      letter-spacing: 1px;
+      transition: all 0.2s linear;
+      cursor: pointer;
+      border: none;
+      background-image: linear-gradient(to right, #48c6ba 0%, #4af3e2 100%);
+      margin-top: 15px;
+      margin-left: 65px;
+    }
+
+    button>svg {
+      margin-right: 5px;
+      margin-left: 5px;
+      font-size: 20px;
+      transition: all 0.4s ease-in;
+    }
+
+    button:hover>svg {
+      font-size: 1.2em;
+      transform: translateX(-5px);
+    }
+
+    button:hover {
+      box-shadow: 9px 9px 33px #d1d1d1, -9px -9px 33px #ffffff;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+
+<body>
+
+
+
+  <button>
+    <svg height="16" width="16" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1024 1024">
+      <path
+        d="M874.690416 495.52477c0 11.2973-9.168824 20.466124-20.466124 20.466124l-604.773963 0 188.083679 188.083679c7.992021 7.992021 7.992021 20.947078 0 28.939099-4.001127 3.990894-9.240455 5.996574-14.46955 5.996574-5.239328 0-10.478655-1.995447-14.479783-5.996574l-223.00912-223.00912c-3.837398-3.837398-5.996574-9.046027-5.996574-14.46955 0-5.433756 2.159176-10.632151 5.996574-14.46955l223.019353-223.029586c7.992021-7.992021 20.957311-7.992021 28.949332 0 7.992021 8.002254 7.992021 20.957311 0 28.949332l-188.073446 188.073446 604.753497 0C865.521592 475.058646 874.690416 484.217237 874.690416 495.52477z">
+      </path>
+    </svg>
+    <span onclick=" goBack()">Go Back</span>
+  </button>
+
+  <div class="outer-container">
+    <div class="inner-container">
+      <div class="left-side">
+        <h3>Indian Institute of Technology</h3>
+        <img src="/coursImg/IndianInstituteofTechnology3.jpeg" alt="Image Description">
+
+
+
+        <div class="table-title">
+          <h3>Courses Links</h3>
+        </div>
+        <table class="table-fill">
+
+          <tbody class="table-hover">
+
+
+
+
+
+            <tr>
+              <td class="text-left"><a
+                  href="https://www.classcentral.com/classroom/youtube-software-engineering-by-prof-rajib-mall-47363"></a>Software
+                Engineering
+              </td>
+              <td class="text-left"><a href="https://www.iitkgp.ac.in/">iitkgp</a></td>
+            </tr>
+
+            <tr>
+              <td class="text-left"><a href="https://classcentral.com/classroom/youtube-cloud-computing-47759">Cloud
+                  Computing
+                </a></td>
+              <td class="text-left"><a href="https://www.iitkgp.ac.in/">iitkgp</a></td>
+            </tr>
+
+            <tr>
+              <td class="text-left"><a
+                  href="https://classcentral.com/classroom/youtube-noc-jan-2019-introduction-to-industry-4-0-and-industrial-internet-of-things-47354">Introduction
+                  to Industry 4.0 and Industrial Internet of Things
+                </a></td>
+              <td class="text-left"><a href="https://www.iitkgp.ac.in/">iitkgp</a></td>
+            </tr>
+
+            <tr>
+              <td class="text-left"><a
+                  href="https://www.classcentral.com/classroom/youtube-software-testing-47882">Software Testing
+                </a></td>
+              <td class="text-left"><a href="https://www.iitkgp.ac.in/">iitkgp</a></td>
+            </tr>
+
+            <tr>
+              <td class="text-left"><a
+                  href="https://www.classcentral.com/classroom/youtube-noc-jan-2019-programming-in-java-47353">Programming
+                  in Java
+                </a></td>
+              <td class="text-left"><a href="https://www.iitkgp.ac.in/">iitkgp</a></td>
+            </tr>
+
+            <tr>
+              <td class="text-left"><a
+                  href="https://www.classcentral.com/classroom/youtube-computer-sc-artificial-intelligence-prof-p-dasgupta-47674">Artificial
+                  Intelligence
+                </a></td>
+              <td class="text-left"><a href="https://www.iitkgp.ac.in/">iitkgp</a></td>
+            </tr>
+
+            <tr>
+              <td class="text-left"><a
+                  href="https://www.classcentral.com/classroom/youtube-electronics-pattern-recognition-and-application-47563">Pattern
+                  Recognition and Application
+                </a></td>
+              <td class="text-left"><a href="https://www.iitkgp.ac.in/">iitkgp</a></td>
+            </tr>
+
+            <tr>
+              <td class="text-left"><a
+                  href="https://www.classcentral.com/classroom/youtube-introduction-to-soft-computing-47844">Introduction
+                  To Soft Computing
+                </a></td>
+              <td class="text-left"><a href="https://www.iitkgp.ac.in/">iitkgp</a></td>
+            </tr>
+
+            <tr>
+              <td class="text-left"><a
+                  href="https://www.classcentral.com/classroom/youtube-noc-july-2019-deep-learning-47348">Deep Learning
+                </a></td>
+              <td class="text-left"><a href="https://www.iitkgp.ac.in/">iitkgp</a></td>
+            </tr>
+
+            <tr>
+              <td class="text-left"><a
+                  href="https://www.classcentral.com/classroom/youtube-computer-science-real-time-systems-47638">Real-Time
+                  Systems
+                </a></td>
+              <td class="text-left"><a href="https://www.iitkgp.ac.in/">iitkgp</a></td>
+            </tr>
+
+
+
+            <tr>
+              <td class="text-left"><a
+                  href="https://www.classcentral.com/classroom/youtube-blockchain-architecture-design-and-use-cases-course-introduction-47434">Blockchain
+                  Architecture Design and Use Cases Course Introduction
+                </a></td>
+              <td class="text-left"><a href="https://www.iitkgp.ac.in/">iitkgp</a></td>
+            </tr>
+
+
+
+            <tr>
+              <td class="text-left"><a
+                  href="https://www.classcentral.com/classroom/youtube-deep-learning-for-visual-computing-nptel-mooc-debdoot-sheet-iit-kharagpur-47750">Deep
+                  Learning for Visual Computing
+                </a></td>
+              <td class="text-left"><a href="https://www.iitkgp.ac.in/">iitkgp</a></td>
+            </tr>
+
+
+
+
+
+
+
+          </tbody>
+        </table>
+
+      </div>
+
+      <div class="right-side">
+        <p>The Indian Institute of Technology Kharagpur (IIT Kharagpur), established in 1951, holds the distinction of
+          being the oldest and one of the most prestigious IITs in India. Situated in Kharagpur, West Bengal, this
+          institution has a rich heritage of academic excellence, research, and innovation. With its vast and sprawling
+          campus, IIT Kharagpur has played a pivotal role in shaping the educational landscape of the country.
+
+          IIT Kharagpur has a diverse and vibrant community of students, faculty, and staff who are passionate about
+          pursuing knowledge and fostering innovation. The institute is renowned globally for the high quality of its
+          faculty members, who are experts in their respective fields.
+
+          IIT Kharagpur has consistently made significant strides in research and development, making remarkable
+          contributions to science and technology. Its faculty and students engage in cutting-edge research that
+          addresses real-world challenges. The institute's dedicated research centers and labs provide the
+          infrastructure for groundbreaking work in fields such as robotics, artificial intelligence, renewable energy,
+          and more.
+
+          IIT Kharagpur's mission extends beyond the classroom and laboratory. It is actively involved in contributing
+          to society through various outreach programs and initiatives. The institute aims to address global challenges,
+          making an impact on the world through its research, innovations, and educational endeavors.
+
+          In conclusion, the Indian Institute of Technology Kharagpur is a testament to India's commitment to academic
+          excellence, research, and innovation. It stands as a symbol of the nation's capability to produce world-class
+          professionals and leaders who are ready to tackle the complex challenges of the 21st century. IIT Kharagpur's
+          legacy continues to shine brightly, and its unwavering dedication to progress remains an inspiration to
+          students, researchers, and institutions worldwide.</p>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+  <div class="nav_down">
+    <div>
+      &copy; CourseSeeker, Find The Best Courses Online...
+    </div>
+  </div>
+
+
+
+
+
+
+
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+
+</body>
+
+</html>

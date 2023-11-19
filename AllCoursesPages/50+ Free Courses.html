@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CourseSeeker</title>
+</head>
+
+<body>
+    <html>
+
+    <head>
+
+
+        <!-- <link href="css/style.css" type="text/css" rel="stylesheet"> -->
+        <style>
+            * {
+                margin: auto;
+                padding: auto;
+            }
+
+            .top {
+                width: 100%;
+
+                border-bottom: 2px solid #f0f0f0;
+            }
+
+            .top div {
+                width: 1200px;
+                color: #000000;
+                font-family: calibri;
+                padding: 10px;
+                /* text-align: right; */
+            }
+
+
+            .middle {
+                width: 100%;
+                border-bottom: 2px solid #f0f0f0;
+            }
+
+            .middle div {
+                width: 1200px;
+                height: 400px;
+                font-family: calibri;
+            }
+
+            .middle div p {
+                width: 1000px;
+                font-weight: bold;
+                height: 300px;
+                color: #fff;
+                opacity: 0.2;
+                font-size: 50px;
+                background-color: #000;
+            }
+
+            .bottom {
+                width: 100%;
+                /* border-bottom: 2px solid #f0f0f0; */
+            }
+
+            .bottom div {
+                width: 1200px;
+                color: #fff;
+                font-family: calibri;
+                text-align: right;
+            }
+
+            .bottom div table {
+                padding-top: 30px;
+                width: 1100px;
+                text-align: justify;
+                color: gray;
+                font-size: 20px;
+            }
+
+            .bottom_up {
+                width: 100%;
+                border-bottom: 2px solid #f0f0f0;
+            }
+
+            .bottom_up div {
+                padding-top: 20px;
+                width: 1200px;
+                text-align: center;
+                font-family: forte;
+                font-size: 30px;
+                padding-bottom: 20px;
+            }
+
+            .bottom_up div table {
+                padding-top: 30px;
+                font-size: 30px;
+                width: 1100px;
+                text-align: center;
+                font-family: calibri;
+
+            }
+
+
+
+
+
+            .top a {
+                text-decoration: none;
+                color: #000000;
+                /* Default link color */
+                font-weight: bold;
+                font-size: 22px;
+                position: relative;
+                transition: color 0.3s ease;
+                /* Smooth color transition */
+            }
+
+            .top a::before {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                background-color: #40B3A2;
+                /* Color for the underline */
+                bottom: 0;
+                left: 0;
+                transform: scaleX(0);
+                transform-origin: bottom right;
+                transition: transform 0.5s ease;
+                /* Underline animation */
+            }
+
+            .top a:hover {
+                color: #40B3A2;
+                /* Change link color on hover */
+            }
+
+            .top a:hover::before {
+                transform: scaleX(1);
+                /* Expand the underline on hover */
+                transform-origin: bottom left;
+            }
+
+
+
+            /* Wildcard styling */
+            * {
+                box-sizing: border-box;
+            }
+
+            .container {
+                max-width: 1200px;
+                margin: auto;
+            }
+
+            /* Styling h2 tag */
+            h1 {
+                margin-top: 20px;
+                word-break: break-all;
+            }
+
+            /* Anchor tag decoration */
+            a {
+                text-decoration: none;
+                color: #5673C8;
+            }
+
+            a:hover {
+                color: lightblue;
+            }
+
+            .row {
+                margin: 0px -14px;
+                padding: 8px;
+            }
+
+            .row>.column {
+                padding: 6px;
+            }
+
+            .column {
+                float: left;
+                width: 25%;
+                display: none;
+            }
+
+            /* Content decoration */
+            .content {
+                background-color: white;
+                padding: 10px;
+                border: 1px solid gray;
+            }
+
+            h3 {
+                margin-bottom: 15px;
+            }
+
+            /* Paragraph decoration */
+            p {
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 4;
+                overflow: hidden;
+            }
+
+            .row:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+
+            .content {
+                background-color: white;
+                padding: 10px;
+                border: 1px solid gray;
+            }
+
+            .show {
+                display: block;
+            }
+
+            /* Style the filter buttons */
+            .bttn {
+                border: none;
+                padding: 8px 14px;
+                background-color: rgb(255, 255, 255);
+            }
+
+            .bttn:hover {
+                background-color: #dddddd;
+                background-image: linear-gradient(to right, #48c6ba 0%, #4af3e2 100%);
+                opacity: 0.8;
+            }
+
+            .bttn.active {
+                background-image: linear-gradient(to right, #48c6ba 0%, #4af3e2 100%);
+                color: white;
+            }
+
+            /* Window size 850 width set */
+            @media screen and (max-width: 850px) {
+                .column {
+                    width: 50%;
+                }
+            }
+
+            /* Window size 400 width set */
+            @media screen and (max-width: 400px) {
+                .column {
+                    width: 100%;
+                }
+            }
+
+
+
+
+            .nav_down {
+                width: 100%;
+                background-color: #000000 !important;
+                border-bottom: 2px solid #f0f0f0;
+            }
+
+            .nav_down div {
+                width: 1200px;
+                color: #fff;
+                background-color: #000;
+                font-family: calibri;
+                padding: 10px;
+                text-align: left;
+                margin-top: 30px;
+            }
+
+
+
+
+
+            .btn {
+                display: flex;
+                height: 3em;
+                width: 100px;
+                align-items: center;
+                justify-content: center;
+                background-color: #eeeeee4b;
+                border-radius: 3px;
+                letter-spacing: 1px;
+                transition: all 0.2s linear;
+                cursor: pointer;
+                border: none;
+                background-color: #fff;
+                margin-top: 15px;
+                margin-left: 65px;
+                float: right;
+                margin-right: 20px;
+            }
+
+            .btn>svg {
+                margin-right: 5px;
+                margin-left: 5px;
+                font-size: 20px;
+                transition: all 0.4s ease-in;
+            }
+
+            .btn:hover>svg {
+                font-size: 1.2em;
+                transform: translateX(-5px);
+            }
+
+            .btn:hover {
+                background-image: linear-gradient(to right, #48c6ba 0%, #4af3e2 100%);
+                box-shadow: 9px 9px 33px #d1d1d1, -9px -9px 33px #ffffff;
+                transform: translateY(-2px);
+            }
+        </style>
+
+    </head>
+
+    <body>
+        <div class="top">
+            <button class="btn">
+                <svg height="16" width="16" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1024 1024">
+                    <path
+                        d="M874.690416 495.52477c0 11.2973-9.168824 20.466124-20.466124 20.466124l-604.773963 0 188.083679 188.083679c7.992021 7.992021 7.992021 20.947078 0 28.939099-4.001127 3.990894-9.240455 5.996574-14.46955 5.996574-5.239328 0-10.478655-1.995447-14.479783-5.996574l-223.00912-223.00912c-3.837398-3.837398-5.996574-9.046027-5.996574-14.46955 0-5.433756 2.159176-10.632151 5.996574-14.46955l223.019353-223.029586c7.992021-7.992021 20.957311-7.992021 28.949332 0 7.992021 8.002254 7.992021 20.957311 0 28.949332l-188.073446 188.073446 604.753497 0C865.521592 475.058646 874.690416 484.217237 874.690416 495.52477z">
+                    </path>
+                </svg>
+                <span onclick=" goBack()">Go Back</span>
+            </button>
+
+
+        </div>
+
+
+        <div class="bottom">
+            <div>
+                <table border="0">
+                    <tr>
+                        <td width="700px">
+                            <font color="#000"> Welcome to <mark>Free Online Courses</mark> </font> <br> <br>
+
+                            <font color="#000" size="6px">CourseSeeker Free Online Courses...</font> <br>
+                            <br>
+
+                            The online learning sector has boomed in recent years as more and more people prefer to
+                            study from home. There are many reasons why they want to learn from home and not attend
+                            offline school, college, or university. Online education is flexible and cheaper than
+                            traditional learning. Students do not have to live in another city for higher education.
+                            Working people can upskill with the help of online learning without taking leave from their
+                            current job.
+
+
+
+                            Free courses have made online learning more attractive. These courses are available for a
+                            wide range of subjects. All types and levels of students, including corporate executives,
+                            can upskill without spending money. You invest only your time to update your knowledge and
+                            skills. <br><br>
+
+                            <br>
+                        </td>
+
+
+                        <td style="padding-left:20px;">
+                            <!-- <img src="https://digitaldefynd.com/wp-content/uploads/2021/07/digital-defynd-1536x864.png"width="400px"></td> -->
+                            <img src="/coursImg/Free-Online_Courses.jpeg" width="400px">
+                        </td>
+                    </tr>
+
+
+                </table>
+            </div>
+        </div>
+
+        <div class="bottom">
+            <div>
+                <table border="0">
+                    <tr>
+                        <td width="700px">
+
+                            <font color="#000" size="6px">Discover the Best Free Online Courses
+                            </font> <br> <br>
+                            Free online courses can be a great way to acquire knowledge and skills, they may not always
+                            provide formal qualifications or certifications. Therefore, when considering online
+                            learning, individuals should carefully assess their goals and whether a particular course
+                            aligns with those goals. Additionally, verifying the credibility of the platform or
+                            institution offering the course is crucial to ensure the quality of education.
+
+                            In the ever-evolving landscape of online education, it's crucial to stay informed about the
+                            latest trends and platforms to make the most of the opportunities available.<br>
+
+                            <br>
+                        </td>
+
+
+                        <!-- <td style="padding-left:20px;"> </td> -->
+                    </tr>
+
+
+                </table>
+            </div>
+        </div>
+        <hr>
+
+
+
+
+
+
+        <!-- Title and tag -->
+        <div class="container">
+            <h1>50+ Free Courses</h1>
+            <h3>A Online Courses for CourseSeeker</h3>
+
+            <!-- Button foreach group -->
+            <div id="filtering">
+                <button class="bttn active" onclick="geeksportal('all')">
+                    Show all
+                </button>
+                <button class="bttn" onclick="geeksportal('GREAT LEARNING')">
+                    GREAT LEARNING
+                </button>
+                <button class="bttn" onclick="geeksportal('SIMPLILEARN')">
+                    SIMPLILEARN
+                </button>
+                <button class="bttn" onclick="geeksportal('Scripting')">
+                    <!-- Scripting -->
+                </button>
+            </div>
+
+            <!-- Portfolio Gallery Grid -->
+            <div class="row">
+                <div class="column GREAT LEARNING">
+                    <div class="content">
+                        <h4>GREAT LEARNING</h4>
+                        <img src="/coursImg/course-1.jpg" alt="HTML" style="width:100%">
+                        <h3><a
+                                href="https://www.mygreatlearning.com/academy/learn-for-free/courses/python-for-machine-learning">Python
+                                for Machine Learning</a>
+                        </h3>
+                        <p>
+                            This free Java course will introduce you to the world of Java Programming. Explore the
+                            fundamentals of Java, like syntax, functions, and arrays.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="column SIMPLILEARN">
+                    <div class="content">
+                        <h4>SIMPLILEARN</h4>
+                        <img src="/coursImg/course-3.jpeg" alt="CSS" style="width:100%">
+                        <h3><a href="https://www.simplilearn.com/learn-business-analytics-excel-fundamentals-skillup">
+                                Business Analytics with Excel
+                            </a>
+                        </h3>
+                        <p>
+                            Join this free online course to get familiarized with the key concepts of Statistics for
+                            Data Science, probability, and hypotheses. Know how normal distribution and sampling play a
+                            very important role in data analytics practices.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="column GREAT LEARNING">
+                    <div class="content">
+                        <h4>GREAT LEARNING</h4>
+                        <img src="/coursImg/course-2.jpg" alt="HTML" style="width:100%">
+                        <h3><a
+                                href="https://www.mygreatlearning.com/academy/learn-for-free/courses/statistics-for-data-science">Statistics
+                                - for Data Science</a>
+                        </h3>
+                        <p>
+                            Join this free online course to get familiarized with the key concepts of Statistics for
+                            Data Science, probability, and hypotheses.
+                        </p>
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="column SIMPLILEARN">
+                    <div class="content">
+                        <h4>SIMPLILEARN</h4>
+                        <img src="/coursImg/course-6.jpeg" alt="CSS" style="width:100%">
+                        <h3><a href="https://www.simplilearn.com/free-cybercrime-course-for-beginners-skillup">
+                                Introduction to Cybercrime
+
+                            </a>
+                        </h3>
+                        <p>
+                            The Introduction to Cybercrime course gives various insights into the different types of
+                            cyberattacks faced by organizations in today's digital era.
+                        </p>
+                    </div>
+                </div>
+
+
+
+                <div class="column GREAT LEARNING">
+                    <div class="content">
+                        <h4>GREAT LEARNING</h4>
+                        <img src="/coursImg/course-4.jpeg" alt="HTML" style="width:100%">
+                        <h3><a href="/coursImg/course-4.jpeg">Front End Development - HTML
+                            </a>
+                        </h3>
+                        <p>
+                            HTML is a markup language foundation for all your web pages. Learn front-end development for
+                            free through this course to gain fundamental knowledge of HTML and kick-start your Front End
+                            Development career.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="column SIMPLILEARN">
+                    <div class="content">
+                        <h4>SIMPLILEARN</h4>
+                        <img src="/coursImg/course-5.jpeg" alt="CSS" style="width:100%">
+                        <h3><a href="https://www.simplilearn.com/free-cybercrime-course-for-beginners-skillup">
+                                Introduction to Cybercrime
+
+                            </a>
+                        </h3>
+                        <p>
+                            The Introduction to Cybercrime course gives various insights into the different types of
+                            cyberattacks faced by organizations in today's digital era.
+                        </p>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+
+
+
+        <div class="nav_down">
+            <div>
+                &copy; CourseSeeker, Find The Best Courses Online...
+            </div>
+        </div>
+
+
+        <script>geeksportal("all")
+
+            function geeksportal(c) {
+                var x, i;
+
+                x = document.getElementsByClassName("column");
+
+                if (c == "all") c = "";
+
+                for (i = 0; i < x.length; i++) {
+                    w3RemoveClass(x[i], "show");
+
+                    if (x[i].className.indexOf(c) > -1)
+                        w3AddClass(x[i], "show");
+                }
+            }
+
+            function w3AddClass(element, name) {
+                var i, arr1, arr2;
+                arr1 = element.className.split(" ");
+                arr2 = name.split(" ");
+
+                for (i = 0; i < arr2.length; i++) {
+                    if (arr1.indexOf(arr2[i]) == -1) {
+                        element.className += " " + arr2[i];
+                    }
+                }
+            }
+
+            function w3RemoveClass(element, name) {
+                var i, arr1, arr2;
+                arr1 = element.className.split(" ");
+                arr2 = name.split(" ");
+                for (i = 0; i < arr2.length; i++) {
+                    while (arr1.indexOf(arr2[i]) > -1) {
+                        arr1.splice(arr1.indexOf(arr2[i]), 1);
+                    }
+                }
+                element.className = arr1.join(" ");
+            }
+
+            // Add active class to the current 
+            // button (highlight it) 
+            var btnContainer = document.getElementById("filtering");
+            var btns = btnContainer.getElementsByClassName("bttn");
+            for (var i = 0; i < btns.length; i++) {
+                btns[i].addEventListener("click", function () {
+
+                    var current =
+                        document.getElementsByClassName("active");
+
+                    current[0].className =
+                        current[0].className.replace(" active", "");
+
+                    this.className += " active";
+                });
+            }
+
+            function goBack() {
+                window.history.back();
+            }
+        </script>
+
+    </body>
+
+    </html>
+
+
+
+
+    <!-- 900 x 600 -->
+    <!-- course-.jpg -->

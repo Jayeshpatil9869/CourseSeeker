@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CourseSeeker</title>
+</head>
+
+<body>
+    <html>
+
+    <head>
+
+
+        <!-- <link href="css/style.css" type="text/css" rel="stylesheet"> -->
+        <style>
+            * {
+                margin: auto;
+                padding: auto;
+            }
+
+            .top {
+                width: 100%;
+
+                border-bottom: 2px solid #f0f0f0;
+            }
+
+            .top div {
+                width: 1200px;
+                color: #000000;
+                font-family: calibri;
+                padding: 10px;
+                /* text-align: right; */
+            }
+
+            .logo {
+                width: 100%;
+                border-bottom: 2px solid #f0f0f0;
+            }
+
+            .logo div {
+                width: 1200px;
+                font-family: calibri;
+                padding: 10px;
+                text-align: left;
+            }
+
+            .logo div table a {
+                padding: 10px;
+                text-decoration: none;
+                color: gray;
+            }
+
+            .logo div table a:hover {
+                color: #428bca;
+                border-bottom: 2px solid gray;
+            }
+
+            .middle {
+                width: 100%;
+                border-bottom: 2px solid #f0f0f0;
+            }
+
+            .middle div {
+                width: 1200px;
+                height: 400px;
+                font-family: calibri;
+            }
+
+            .middle div p {
+                width: 1000px;
+                font-weight: bold;
+                height: 300px;
+                color: #fff;
+                opacity: 0.2;
+                font-size: 50px;
+                background-color: #000;
+            }
+
+            .bottom {
+                width: 100%;
+                /* border-bottom: 2px solid #f0f0f0; */
+            }
+
+            .bottom div {
+                width: 1200px;
+                color: #fff;
+                font-family: calibri;
+                text-align: right;
+            }
+
+            .bottom div table {
+                padding-top: 30px;
+                width: 1100px;
+                text-align: justify;
+                color: gray;
+                font-size: 20px;
+            }
+
+            .bottom_up {
+                width: 100%;
+                border-bottom: 2px solid #f0f0f0;
+            }
+
+            .bottom_up div {
+                padding-top: 20px;
+                width: 1200px;
+                text-align: center;
+                font-family: forte;
+                font-size: 30px;
+                padding-bottom: 20px;
+            }
+
+            .bottom_up div table {
+                padding-top: 30px;
+                font-size: 30px;
+                width: 1100px;
+                text-align: center;
+                font-family: calibri;
+
+            }
+
+            input[type="text"] {
+                padding: 12px;
+                width: 250px;
+            }
+
+            select {
+                padding: 12px;
+                width: 250px;
+            }
+
+            textarea {
+                padding: 50px;
+                width: 550px;
+            }
+
+
+
+
+            .nav_down {
+                width: 100%;
+                background-color: #000000 !important;
+                border-bottom: 2px solid #f0f0f0;
+            }
+
+            .nav_down div {
+                width: 1200px;
+                color: #fff;
+                background-color: #000;
+                font-family: calibri;
+                padding: 10px;
+                text-align: left;
+            }
+
+
+
+            /* 
+            table {
+                width: 509px;
+            }
+
+            #lightTable {
+                margin-top: 15px;
+                margin-left: 80px;
+                background-color: #fff;
+                border-radius: 12px;
+                text-align: left;
+                width: 1200px;
+            }
+
+            th,
+            td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+
+            tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            th {
+                background: linear-gradient(rgba(72, 200, 188, 1), rgba(74, 243, 226, 1) 100%);
+
+                color: white;
+                cursor: pointer;
+            } */
+            #lightTable {
+                margin-left: 95px;
+                margin-bottom: 0px;
+            }
+
+            table {
+                width: 40%;
+                margin: 20px;
+            }
+
+            th,
+            td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+
+            tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            th {
+                background: linear-gradient(rgba(72, 200, 188, 1), rgba(74, 243, 226, 1) 100%);
+                color: white;
+                cursor: pointer;
+            }
+
+
+
+
+            .pagination {
+                display: inline-block;
+                margin-left: 80px;
+                margin-top: 18px;
+                margin-bottom: 30px;
+            }
+
+            .pagination a {
+                color: black;
+                float: left;
+                padding: 8px 16px;
+                text-decoration: none;
+                margin-left: 5px;
+                margin-bottom: 20px;
+            }
+
+            .page-link {
+                position: relative;
+                padding: 10px 20px;
+                border-radius: 7px;
+                /* border: 1px solid rgb(0, 0, 0); */
+                font-size: 14px;
+                text-transform: uppercase;
+                font-weight: 600;
+                letter-spacing: 2px;
+                background: transparent;
+                color: #fff;
+                overflow: hidden;
+                box-shadow: 0 0 0 0 transparent;
+                -webkit-transition: all 0.2s ease-in;
+                -moz-transition: all 0.2s ease-in;
+                transition: all 0.2s ease-in;
+                text-decoration: none;
+                /* Remove default underline for links */
+            }
+
+            .page-link:hover {
+                background: linear-gradient(to right, #48c6ba 0%, #4af3e2 100%);
+                transition: 1.0s ease;
+                box-shadow: 0 0px 13px rgba(0, 0, 0, 0.3);
+
+
+                /* box-shadow: 0 0 30px 5px rgba(0, 142, 236, 0.815); */
+                -webkit-transition: all 0.2s ease-out;
+                -moz-transition: all 0.2s ease-out;
+                transition: all 0.2s ease-out;
+            }
+
+            .page-link:hover::before {
+                -webkit-animation: sh02 0.5s 0s linear;
+                -moz-animation: sh02 0.5s 0s linear;
+                animation: sh02 0.5s 0s linear;
+            }
+
+
+
+
+            .search-box {
+                margin-left: 7%;
+                font-size: 7px;
+                border: solid 0.3em #000000;
+                display: inline-block;
+                position: relative;
+                border-radius: 2.5em;
+                margin-top: 15px;
+                /* background-color: #fff; */
+                box-shadow: 0 0px 10px rgba(0, 0, 0, 0.3);
+            }
+
+            .search-box input[type=text] {
+                /* font-family: inherit; */
+                /* font-weight: bold; */
+                width: 1.5em;
+                height: 2.5em;
+                padding: 0.3em 2.1em 0.3em 0.4em;
+                border: none;
+                box-sizing: border-box;
+                border-radius: 2.5em;
+                transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55) 150ms;
+            }
+
+            .search-box input[type=text]:focus {
+                outline: none;
+            }
+
+            .search-box input[type=text]:focus,
+            .search-box input[type=text]:not(:placeholder-shown) {
+                width: 13em;
+                transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            }
+
+            .search-box input[type=text]:focus+button[type=reset],
+            .search-box input[type=text]:not(:placeholder-shown)+button[type=reset] {
+                transform: rotate(-45deg) translateY(0);
+                transition: transform 150ms ease-out 800ms;
+            }
+
+            .search-box input[type=text]:focus+button[type=reset]:after,
+            .search-box input[type=text]:not(:placeholder-shown)+button[type=reset]:after {
+                opacity: 1;
+                transition: top 150ms ease-out 950ms, right 150ms ease-out 950ms, opacity 150ms ease 950ms;
+            }
+
+            .search-box button[type=reset] {
+
+                background-color: transparent;
+                width: 1.6em;
+                font-size: 12px;
+                height: 1.9em;
+                border: 0;
+                padding: 0;
+                outline: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                top: 0.55em;
+                right: 0.55em;
+                transform: rotate(-45deg) translateY(2.2em);
+                transition: transform 150ms ease-out 150ms;
+            }
+
+            .search-box button[type=reset]:before,
+            .search-box button[type=reset]:after {
+                content: "";
+                background-color: #000000;
+                width: 0.3em;
+                height: 1.4em;
+                position: absolute;
+            }
+
+            .search-box button[type=reset]:after {
+                transform: rotate(90deg);
+                opacity: 0;
+                transition: transform 150ms ease-out, opacity 150ms ease-out;
+            }
+
+            /* .top a {
+                text-decoration: none;
+                font-size: 24px;
+            } */
+
+            .top a {
+                text-decoration: none;
+                color: #000000;
+                /* Default link color */
+                font-weight: bold;
+                font-size: 22px;
+                position: relative;
+                transition: color 0.3s ease;
+                /* Smooth color transition */
+            }
+
+            .top a::before {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                background-color: #40B3A2;
+                /* Color for the underline */
+                bottom: 0;
+                left: 0;
+                transform: scaleX(0);
+                transform-origin: bottom right;
+                transition: transform 0.5s ease;
+                /* Underline animation */
+            }
+
+            .top a:hover {
+                color: #40B3A2;
+                /* Change link color on hover */
+            }
+
+            .top a:hover::before {
+                transform: scaleX(1);
+                /* Expand the underline on hover */
+                transform-origin: bottom left;
+            }
+        </style>
+
+    </head>
+
+    <body>
+        <div class="top">
+            <div>
+                <!-- Contact Us +91 96366 20000 / 01 | ukh@hospital.com -->
+                <a onclick=" goBack()">Home</a>
+            </div>
+        </div>
+
+
+        <div class="bottom">
+            <div>
+                <table border="0">
+                    <tr>
+                        <td width="700px">
+                            <font color="#000"> Welcome to <mark>Free Online Courses</mark> </font> <br> <br>
+
+                            <font color="#000" size="6px">CourseSeeker Free Online Courses...</font> <br>
+                            <br>
+
+                            The online learning sector has boomed in recent years as more and more people prefer to
+                            study from home. There are many reasons why they want to learn from home and not attend
+                            offline school, college, or university. Online education is flexible and cheaper than
+                            traditional learning. Students do not have to live in another city for higher education.
+                            Working people can upskill with the help of online learning without taking leave from their
+                            current job.
+
+
+
+                            Free courses have made online learning more attractive. These courses are available for a
+                            wide range of subjects. All types and levels of students, including corporate executives,
+                            can upskill without spending money. You invest only your time to update your knowledge and
+                            skills. <br><br>
+
+                            <br>
+                        </td>
+
+
+                        <td style="padding-left:20px;">
+                            <!-- <img src="https://digitaldefynd.com/wp-content/uploads/2021/07/digital-defynd-1536x864.png"width="400px"></td> -->
+                            <img src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&q=80&w=1374&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                width="400px">
+                        </td>
+                    </tr>
+
+
+                </table>
+            </div>
+        </div>
+
+        <div class="bottom">
+            <div>
+                <table border="0">
+                    <tr>
+                        <td width="700px">
+                            <font color="#000">Course </font> <br> <br>
+
+                            <font color="#000" size="6px">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            </font> <br> <br>
+
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa nulla consequatur, tempore
+                            rem beatae ex. Impedit quis consectetur deleniti quidem, minus natus ipsum, assumenda
+                            facilis, odio unde eaque obcaecati atque quod iste! Vel laudantium delectus soluta
+                            consequatur totam cupiditate maxime. <br>
+
+                            <br>
+                        </td>
+
+
+                        <!-- <td style="padding-left:20px;"> </td> -->
+                    </tr>
+
+
+                </table>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+        <form class="search-box">
+            <input type="text" id="searchInput" placeholder=" " />
+            <button type="reset"></button>
+        </form>
+
+        <table id="lightTable">
+            <thead>
+                <tr>
+                    <th onclick="sortTable(0)">Institute</th>
+                    <th onclick="sortTable(1)">Course</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data rows go here -->
+            </tbody>
+        </table>
+
+        <div class="pagination">
+            <a onclick="changePage(1)" class="page-link" ActiveXObject(1)>1</a>
+            <a onclick="changePage(2)" class="page-link">2</a>
+            <a onclick="changePage(3)" class="page-link">3</a>
+        </div>
+
+
+
+
+
+
+
+        <div class="nav_down">
+            <div>
+                &copy; CourseSeeker, Find The Best Courses Online...
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <script>
+            // Data for the table (Course, Institute)
+            const data = [
+                // ['Yale School of Management Executive Education', '<a href="https://instituteX.com"><span style="color: red;">Institute X</span></a>'],
+                ['Udemy', '<a href="https://www.udemy.com/course/java-tutorial/">Java Tutorial for Complete Beginners</a>'],
+
+                ['Udemy', '<a href="https://www.udemy.com/course/pythonforbeginnersintro/">Introduction To Python Programming</a>'],
+                ['Coursera', '<a href="https://www.coursera.org/projects/introduction-microsoft-excel">Introduction to Microsoft Excel</a>'],
+
+                ['Udemy', '<a href="https://www.udemy.com/course/become-an-android-developer-from-scratch/">Become an Android Developer from Scratch'],
+
+                ['Udemy', '<a href="https://www.udemy.com/course/free-learn-c-tutorial-beginners/">C++ Tutorial for Complete Beginners/a>'],
+
+                ['Udemy', '<a href="https://www.udemy.com/course/web-design-secrets/">Web Design for Web Developers: Build Beautiful Websites!</a>'],
+
+                ['Udemy', '<a href="https://www.udemy.com/course/introduction-to-databases-and-sql-querying/">Introduction to Databases and SQL Querying</a>'],
+
+                ['Udemy', '<a href="https://www.udemy.com/course/useful-excel-for-beginners/">Useful Excel for Beginners</a>'],
+
+                ['Udemy', '<a href="https://www.udemy.com/course/code-your-first-game/">Code Your First Game: Arcade Classic in JavaScript on Canvas</a>'],
+
+                ['Udemy', '<a href="https://www.udemy.com/course/the-beginners-guide-to-the-stock-market/">Stock Market Investing for Beginners</a>'],
+
+                ['Udemy', '<a href="https://www.udemy.com/course/php-mysql-tutorial/">Beginner PHP and MySQL Tutorial</a>'],
+
+                ['Udemy', '<a href="https://www.udemy.com/course/learn-android-application-development-y/">Learn Android Application Development</a>'],
+
+                ['Udemy', '<a href="https://www.udemy.com/course/javascript-essentials/">Javascript Essentials</a>'],
+                ['Udemy', '<a href="https://www.udemy.com/course/whiteboard-seo/">SEO Training Course by Moz</a>'],
+                ['Udemy', '<a href="https://www.udemy.com/course/7-scientifically-proven-steps-to-increase-your-influence/">7 Scientifically Proven Steps to Increase Your Influence</a>'],
+                ['Udemy', '<a href="https://www.udemy.com/course/free-photography-course-for-beginners/">Introductory Photography Course</a>'],
+                ['Udemy', '<a href="https://www.udemy.com/course/professional-logo-design-crash-course/">Professional Logo Design in Adobe Illustrator</a>'],
+                ['Udemy', '<a href="https://www.udemy.com/course/java-multithreading/">Java Multithreading</a>'],
+                ['Udemy', '<a href="https://www.udemy.com/course/seo-tutorial/">SEO Tutorial for Beginners</a>'],
+                ['Udemy', '<a href=""></a>'],
+                ['Udemy', '<a href=""></a>'],
+                ['Udemy', '<a href=""></a>'],
+                ['Udemy', '<a href=""></a>'],
+                ['Udemy', '<a href=""></a>'],
+                ['Udemy', '<a href=""></a>'],
+                ['Udemy', '<a href=""></a>'],
+                ['Udemy', '<a href=""></a>'],
+
+                // Add more data here
+            ];
+
+            // Table elements
+            const table = document.getElementById('lightTable');
+            const tbody = table.getElementsByTagName('tbody')[0];
+            const searchInput = document.getElementById('searchInput');
+
+            // Pagination variables
+            const itemsPerPage = 10;
+            let currentPage = 1;
+            changePage(1);
+
+
+            // Sort variables
+            let currentColumn = -1;
+            let ascending = true;
+
+            // Add event listener for search input
+            searchInput.addEventListener('input', filterTable);
+
+            // Function to filter the table
+            function filterTable() {
+                const filter = searchInput.value.toUpperCase();
+                const rows = tbody.getElementsByTagName('tr');
+
+                for (let i = 0; i < rows.length; i++) {
+                    const cells = rows[i].getElementsByTagName('td');
+                    let shouldShow = false;
+
+                    for (let j = 0; j < cells.length; j++) {
+                        const cell = cells[j];
+                        const textValue = cell.textContent || cell.innerText;
+
+                        if (textValue.toUpperCase().indexOf(filter) > -1) {
+                            shouldShow = true;
+                            break;
+                        }
+                    }
+
+                    rows[i].style.display = shouldShow ? '' : 'none';
+                }
+            }
+
+            // Function to update the table based on the current page
+            function updateTable() {
+                tbody.innerHTML = '';
+
+                const startIndex = (currentPage - 1) * itemsPerPage;
+                const endIndex = startIndex + itemsPerPage;
+
+                for (let i = startIndex; i < endIndex; i++) {
+                    const item = data[i];
+                    if (item) {
+                        const row = tbody.insertRow();
+                        const courseCell = row.insertCell(0);
+                        const instituteCell = row.insertCell(1);
+
+                        courseCell.innerHTML = item[0];
+                        instituteCell.innerHTML = item[1];
+                    }
+                }
+            }
+
+            // Function to change the current page
+            function changePage(page) {
+                currentPage = page;
+                updateTable();
+
+            }
+
+            // Function to sort the table
+            function sortTable(column) {
+                if (currentColumn === column) {
+                    ascending = !ascending;
+                } else {
+                    currentColumn = column;
+                    ascending = true;
+                }
+
+                const rows = Array.from(tbody.getElementsByTagName('tr'));
+                rows.sort((a, b, c) => {
+                    const aValue = a.getElementsByTagName('td')[column].textContent;
+                    const bValue = b.getElementsByTagName('td')[column].textContent;
+                    return ascending ? aValue.localeCompare(bValue) : bValue.localeCompare(aValue);
+                });
+
+                rows.forEach(row => tbody.appendChild(row));
+            }
+
+            // Initialize the table
+            updateTable();
+
+            function goBack() {
+                window.history.back();
+            }
+        </script>
+
+    </body>
+
+    </html>

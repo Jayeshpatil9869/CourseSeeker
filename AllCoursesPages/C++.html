@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CourseSeeker</title>
+</head>
+
+<body>
+    <html>
+
+    <head>
+
+
+        <!-- <link href="css/style.css" type="text/css" rel="stylesheet"> -->
+        <style>
+            * {
+                margin: auto;
+                padding: auto;
+            }
+
+            .top {
+                width: 100%;
+
+                border-bottom: 2px solid #f0f0f0;
+            }
+
+            .top div {
+                width: 1200px;
+                color: #000000;
+                font-family: calibri;
+                padding: 10px;
+                /* text-align: right; */
+            }
+
+            .logo {
+                width: 100%;
+                border-bottom: 2px solid #f0f0f0;
+            }
+
+            .logo div {
+                width: 1200px;
+                font-family: calibri;
+                padding: 10px;
+                text-align: left;
+            }
+
+            .logo div table a {
+                padding: 10px;
+                text-decoration: none;
+                color: gray;
+            }
+
+            .logo div table a:hover {
+                color: #428bca;
+                border-bottom: 2px solid gray;
+            }
+
+            .middle {
+                width: 100%;
+                border-bottom: 2px solid #f0f0f0;
+            }
+
+            .middle div {
+                width: 1200px;
+                height: 400px;
+                font-family: calibri;
+            }
+
+            .middle div p {
+                width: 1000px;
+                font-weight: bold;
+                height: 300px;
+                color: #fff;
+                opacity: 0.2;
+                font-size: 50px;
+                background-color: #000;
+            }
+
+            .bottom {
+                width: 100%;
+                /* border-bottom: 2px solid #f0f0f0; */
+            }
+
+            .bottom div {
+                width: 1200px;
+                color: #fff;
+                font-family: calibri;
+                text-align: right;
+            }
+
+            .bottom div table {
+                padding-top: 30px;
+                width: 1100px;
+                text-align: justify;
+                color: gray;
+                font-size: 20px;
+            }
+
+            .bottom_up {
+                width: 100%;
+                border-bottom: 2px solid #f0f0f0;
+            }
+
+            .bottom_up div {
+                padding-top: 20px;
+                width: 1200px;
+                text-align: center;
+                font-family: forte;
+                font-size: 30px;
+                padding-bottom: 20px;
+            }
+
+            .bottom_up div table {
+                padding-top: 30px;
+                font-size: 30px;
+                width: 1100px;
+                text-align: center;
+                font-family: calibri;
+
+            }
+
+            input[type="text"] {
+                padding: 12px;
+                width: 250px;
+            }
+
+            select {
+                padding: 12px;
+                width: 250px;
+            }
+
+            textarea {
+                padding: 50px;
+                width: 550px;
+            }
+
+
+
+
+            .nav_down {
+                width: 100%;
+                background-color: #000000 !important;
+                border-bottom: 2px solid #f0f0f0;
+            }
+
+            .nav_down div {
+                width: 1200px;
+                color: #fff;
+                background-color: #000;
+                font-family: calibri;
+                padding: 10px;
+                text-align: left;
+            }
+
+
+
+            /* 
+            table {
+                width: 509px;
+            }
+
+            #lightTable {
+                margin-top: 15px;
+                margin-left: 80px;
+                background-color: #fff;
+                border-radius: 12px;
+                text-align: left;
+                width: 1200px;
+            }
+
+            th,
+            td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+
+            tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            th {
+                background: linear-gradient(rgba(72, 200, 188, 1), rgba(74, 243, 226, 1) 100%);
+
+                color: white;
+                cursor: pointer;
+            } */
+            #lightTable {
+                margin-left: 95px;
+                margin-bottom: 0px;
+            }
+
+            table {
+                width: 40%;
+                margin: 20px;
+            }
+
+            th,
+            td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+
+            tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            th {
+                background: linear-gradient(rgba(72, 200, 188, 1), rgba(74, 243, 226, 1) 100%);
+                color: white;
+                cursor: pointer;
+            }
+
+
+
+
+            .pagination {
+                display: inline-block;
+                margin-left: 80px;
+                margin-top: 18px;
+                margin-bottom: 30px;
+            }
+
+            .pagination a {
+                color: black;
+                float: left;
+                padding: 8px 16px;
+                text-decoration: none;
+                margin-left: 5px;
+                margin-bottom: 20px;
+            }
+
+            .page-link {
+                position: relative;
+                padding: 10px 20px;
+                border-radius: 7px;
+                /* border: 1px solid rgb(0, 0, 0); */
+                font-size: 14px;
+                text-transform: uppercase;
+                font-weight: 600;
+                letter-spacing: 2px;
+                background: transparent;
+                color: #fff;
+                overflow: hidden;
+                box-shadow: 0 0 0 0 transparent;
+                -webkit-transition: all 0.2s ease-in;
+                -moz-transition: all 0.2s ease-in;
+                transition: all 0.2s ease-in;
+                text-decoration: none;
+                /* Remove default underline for links */
+            }
+
+            .page-link:hover {
+                background: linear-gradient(to right, #48c6ba 0%, #4af3e2 100%);
+                transition: 1.0s ease;
+                box-shadow: 0 0px 13px rgba(0, 0, 0, 0.3);
+
+
+                /* box-shadow: 0 0 30px 5px rgba(0, 142, 236, 0.815); */
+                -webkit-transition: all 0.2s ease-out;
+                -moz-transition: all 0.2s ease-out;
+                transition: all 0.2s ease-out;
+            }
+
+            .page-link:hover::before {
+                -webkit-animation: sh02 0.5s 0s linear;
+                -moz-animation: sh02 0.5s 0s linear;
+                animation: sh02 0.5s 0s linear;
+            }
+
+
+
+
+            .search-box {
+                margin-left: 7%;
+                font-size: 7px;
+                border: solid 0.3em #000000;
+                display: inline-block;
+                position: relative;
+                border-radius: 2.5em;
+                margin-top: 15px;
+                /* background-color: #fff; */
+                box-shadow: 0 0px 10px rgba(0, 0, 0, 0.3);
+            }
+
+            .search-box input[type=text] {
+                /* font-family: inherit; */
+                /* font-weight: bold; */
+                width: 1.5em;
+                height: 2.5em;
+                padding: 0.3em 2.1em 0.3em 0.4em;
+                border: none;
+                box-sizing: border-box;
+                border-radius: 2.5em;
+                transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55) 150ms;
+            }
+
+            .search-box input[type=text]:focus {
+                outline: none;
+            }
+
+            .search-box input[type=text]:focus,
+            .search-box input[type=text]:not(:placeholder-shown) {
+                width: 13em;
+                transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            }
+
+            .search-box input[type=text]:focus+button[type=reset],
+            .search-box input[type=text]:not(:placeholder-shown)+button[type=reset] {
+                transform: rotate(-45deg) translateY(0);
+                transition: transform 150ms ease-out 800ms;
+            }
+
+            .search-box input[type=text]:focus+button[type=reset]:after,
+            .search-box input[type=text]:not(:placeholder-shown)+button[type=reset]:after {
+                opacity: 1;
+                transition: top 150ms ease-out 950ms, right 150ms ease-out 950ms, opacity 150ms ease 950ms;
+            }
+
+            .search-box button[type=reset] {
+
+                background-color: transparent;
+                width: 1.6em;
+                font-size: 12px;
+                height: 1.9em;
+                border: 0;
+                padding: 0;
+                outline: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                top: 0.55em;
+                right: 0.55em;
+                transform: rotate(-45deg) translateY(2.2em);
+                transition: transform 150ms ease-out 150ms;
+            }
+
+            .search-box button[type=reset]:before,
+            .search-box button[type=reset]:after {
+                content: "";
+                background-color: #000000;
+                width: 0.3em;
+                height: 1.4em;
+                position: absolute;
+            }
+
+            .search-box button[type=reset]:after {
+                transform: rotate(90deg);
+                opacity: 0;
+                transition: transform 150ms ease-out, opacity 150ms ease-out;
+            }
+
+            /* .top a {
+                text-decoration: none;
+                font-size: 24px;
+            } */
+
+            .top a {
+                text-decoration: none;
+                color: #000000;
+                /* Default link color */
+                font-weight: bold;
+                font-size: 22px;
+                position: relative;
+                transition: color 0.3s ease;
+                /* Smooth color transition */
+            }
+
+            .top a::before {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                background-color: #40B3A2;
+                /* Color for the underline */
+                bottom: 0;
+                left: 0;
+                transform: scaleX(0);
+                transform-origin: bottom right;
+                transition: transform 0.5s ease;
+                /* Underline animation */
+            }
+
+            .top a:hover {
+                color: #40B3A2;
+                /* Change link color on hover */
+            }
+
+            .top a:hover::before {
+                transform: scaleX(1);
+                /* Expand the underline on hover */
+                transform-origin: bottom left;
+            }
+        </style>
+
+    </head>
+
+    <body>
+        <div class="top">
+            <div>
+                <!-- Contact Us +91 96366 20000 / 01 | ukh@hospital.com -->
+                <a onclick=" goBack()">Home</a>
+            </div>
+        </div>
+
+
+        <div class="bottom">
+            <div>
+                <table border="0">
+                    <tr>
+                        <td width="700px">
+                            <font color="#000"> Welcome to <mark>C++ Courses</mark> </font> <br> <br>
+
+                            <font color="#000" size="6px">Free C++ Courses-Master the Art of Programming</font> <br>
+                            <br>
+
+                            Welcome to our comprehensive collection of free C++ courses! Whether you're an aspiring
+                            programmer, a student, or a seasoned developer looking to sharpen your skills, our free C++
+                            courses offer a fantastic opportunity to explore the world of C++ programming without
+                            breaking the bank. C++ is a powerful and versatile programming language, widely used in
+                            various domains, including game development, system programming, and software engineering.
+                            These courses will equip you with the knowledge and skills you need to become proficient in
+                            C++. <br><br>
+
+                            <br>
+                        </td>
+
+
+                        <td style="padding-left:20px;">
+                            <!-- <img src="https://digitaldefynd.com/wp-content/uploads/2021/07/digital-defynd-1536x864.png"width="400px"></td> -->
+                            <img src="/coursImg/AllCourse-C++.jpeg" width="400px">
+                        </td>
+                    </tr>
+
+
+                </table>
+            </div>
+        </div>
+
+        <div class="bottom">
+            <div>
+                <table border="0">
+                    <tr>
+                        <td width="700px">
+
+                            <font color="#000" size="6px">Course Highlights:</font> <br> <br>
+                            Beginner-Friendly: Our courses cater to both beginners and those with some programming
+                            experience. You'll start with the fundamentals and gradually progress to more advanced
+                            topics.
+
+                            Comprehensive Curriculum: From basic syntax and data structures to object-oriented
+                            programming and memory management, our courses cover all aspects of C++.
+
+                            Hands-On Learning: You'll have the opportunity to work on real coding projects, ensuring you
+                            can apply what you learn in a practical context.
+
+                            Interactive Quizzes: Test your knowledge with interactive quizzes and exercises that
+                            reinforce your understanding of C++.
+
+                            Expert Instructors: Learn from experienced instructors with a passion for teaching and a
+                            deep understanding of C++.
+
+                            Self-Paced Learning: Our courses are designed for flexibility, allowing you to learn at your
+                            own pace and fit your studies into your schedule.<br>
+
+                            <br>
+                        </td>
+
+
+                        <!-- <td style="padding-left:20px;"> </td> -->
+                    </tr>
+
+
+                </table>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+        <form class="search-box">
+            <input type="text" id="searchInput" placeholder=" " />
+            <button type="reset"></button>
+        </form>
+
+        <table id="lightTable">
+            <thead>
+                <tr>
+                    <th onclick="sortTable(0)">Institute</th>
+                    <th onclick="sortTable(1)">Course</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data rows go here -->
+            </tbody>
+        </table>
+
+        <div class="pagination">
+            <a onclick="changePage(1)" class="page-link" ActiveXObject(1)>1</a>
+            <a onclick="changePage(2)" class="page-link">2</a>
+            <a onclick="changePage(3)" class="page-link">3</a>
+        </div>
+
+
+
+
+
+
+
+        <div class="nav_down">
+            <div>
+                &copy; CourseSeeker, Find The Best Courses Online...
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <script>
+            // Data for the table (Course, Institute)
+            const data = [
+
+                ['simplilearn', '<a href="https://www.simplilearn.com/free-course-to-learn-cpp-basics-skillup">Introduction to C++</a>'],
+                ['udacity', '<a href="https://www.udacity.com/course/c-for-programmers--ud210">C++ For Programmers</a>'],
+                ['scaler', '<a href="https://www.scaler.com/topics/course/cpp-beginners/">C++ Course: Learn the Essentials</a>'],
+                ['classcentral', '<a href="https://www.classcentral.com/course/edx-introduction-to-programming-in-c-21424">Introduction to Programming in C++</a>'],
+                ['edx', '<a href="https://www.edx.org/learn/c-plus-plus">Learn C++ with online courses and programs</a>'],
+                ['interviewbit', '<a href="https://www.interviewbit.com/blog/best-free-cpp-course/">Best Free C++ Course</a>'],
+                ['udemy', '<a href="https://www.udemy.com/course/data-structures-algorithms-cpp/">C++ Data Structures & Algorithms + LEETCODE Exercises</a>'],
+                ['coursera', '<a href="https://www.coursera.org/learn/codio-cpp-basics">C++ Basics: Selection and Iteration</a>'],
+                ['Great Learning', '<a href="https://www.mygreatlearning.com/academy/learn-for-free/courses/introduction-to-c">Introduction to C++</a>'],
+                ['udemy', '<a href="https://www.udemy.com/course/free-learn-c-tutorial-beginners/?utm_source=adwords&utm_medium=udemyads&utm_campaign=DSA_Catchall_la.EN_cc.INDIA&utm_content=deal4584&utm_term=_._ag_82569850245_._ad_533220805577_._kw__._de_c_._dm__._pl__._ti_dsa-406594358574_._li_1007786_._pd__._&matchtype=&gad_source=1&gclid=Cj0KCQjwy4KqBhD0ARIsAEbCt6ilJUyfRWA8IX2pbLjz0aikGxTbBAezS91HvW97tJalD5O8ziazarEaAuQZEALw_wcB">C++ Tutorial for Complete Beginners</a>'],
+                ['codecademy', '<a href="https://codecademy.com/learn/learn-c-plus-plus">Learn C++</a>'],
+                ['udemy', '<a href="https://www.udemy.com/course/free-learn-c-tutorial-beginners/">C++ Tutorial for Complete Beginners</a>'],
+                ['alison', '<a href="https://alison.com/course/introduction-to-c-plus-plus-programming-language">C++ Programming Language</a>'],
+                ['coursera', '<a href="https://www.coursera.org/specializations/coding-for-everyone">Coding for Everyone: C and C++ Specialization</a>'],
+                ['programiz', '<a href="https://www.programiz.com/cpp-programming">Learn C++ Programming</a>'],
+                ['udemy', '<a href="https://www.udemy.com/course/datastructurescncpp/">Mastering Data Structures & Algorithms using C and C++</a>'],
+                ['netacad', '<a href="https://netacad.com/courses/programming/essentials-programming-c-plus-plus">CPA: Programming Essentials in C++</a>'],
+                ['learnvern', '<a href="https://www.learnvern.com/course/cpp-tutorial">C++ Course</a>'],
+                ['educative', '<a href="https://www.educative.io/courses/learn-cpp-from-scratch">Learn C++ from Scratch</a>'],
+                ['udemy', '<a href="https://www.udemy.com/course/cpp-deep-dive/">Learn C++ Programming -Beginner to Advance- Deep Dive in C++</a>'],
+                ['onlinecourses', '<a href="https://onlinecourses.nptel.ac.in/noc21_cs02/preview">Programming in C++</a>'],
+                ['coursera', '<a href="https://www.coursera.org/learn/cpp-object-basics">C++ Object Basics: Functions, Recursion, and Objects</a>'],
+                ['educative', '<a href="https://www.educative.io/courses/learn-cpp-complete-course?ranMID=47764&ranEAID=jU79Zysihs4&ranSiteID=jU79Zysihs4-6limxlei.SN1NaIwkfcBcQ&aff=Vprj">Learn C++: The Complete Course for Beginners</a>'],
+                ['udemy', '<a href="https://www.udemy.com/course/the-modern-cpp-20-masterclass/">The C++20 Masterclass : From Fundamentals to Advanced</a>'],
+                // Add more data here
+            ];
+
+            // Table elements
+            const table = document.getElementById('lightTable');
+            const tbody = table.getElementsByTagName('tbody')[0];
+            const searchInput = document.getElementById('searchInput');
+
+            // Pagination variables
+            const itemsPerPage = 10;
+            let currentPage = 1;
+            changePage(1);
+
+
+            // Sort variables
+            let currentColumn = -1;
+            let ascending = true;
+
+            // Add event listener for search input
+            searchInput.addEventListener('input', filterTable);
+
+            // Function to filter the table
+            function filterTable() {
+                const filter = searchInput.value.toUpperCase();
+                const rows = tbody.getElementsByTagName('tr');
+
+                for (let i = 0; i < rows.length; i++) {
+                    const cells = rows[i].getElementsByTagName('td');
+                    let shouldShow = false;
+
+                    for (let j = 0; j < cells.length; j++) {
+                        const cell = cells[j];
+                        const textValue = cell.textContent || cell.innerText;
+
+                        if (textValue.toUpperCase().indexOf(filter) > -1) {
+                            shouldShow = true;
+                            break;
+                        }
+                    }
+
+                    rows[i].style.display = shouldShow ? '' : 'none';
+                }
+            }
+
+            // Function to update the table based on the current page
+            function updateTable() {
+                tbody.innerHTML = '';
+
+                const startIndex = (currentPage - 1) * itemsPerPage;
+                const endIndex = startIndex + itemsPerPage;
+
+                for (let i = startIndex; i < endIndex; i++) {
+                    const item = data[i];
+                    if (item) {
+                        const row = tbody.insertRow();
+                        const courseCell = row.insertCell(0);
+                        const instituteCell = row.insertCell(1);
+
+                        courseCell.innerHTML = item[0];
+                        instituteCell.innerHTML = item[1];
+                    }
+                }
+            }
+
+            // Function to change the current page
+            function changePage(page) {
+                currentPage = page;
+                updateTable();
+
+            }
+
+            // Function to sort the table
+            function sortTable(column) {
+                if (currentColumn === column) {
+                    ascending = !ascending;
+                } else {
+                    currentColumn = column;
+                    ascending = true;
+                }
+
+                const rows = Array.from(tbody.getElementsByTagName('tr'));
+                rows.sort((a, b, c) => {
+                    const aValue = a.getElementsByTagName('td')[column].textContent;
+                    const bValue = b.getElementsByTagName('td')[column].textContent;
+                    return ascending ? aValue.localeCompare(bValue) : bValue.localeCompare(aValue);
+                });
+
+                rows.forEach(row => tbody.appendChild(row));
+            }
+
+            // Initialize the table
+            updateTable();
+
+            function goBack() {
+                window.history.back();
+            }
+        </script>
+
+    </body>
+
+    </html>

@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CourseSeeker</title>
+</head>
+
+<body>
+    <html>
+
+    <head>
+
+
+        <!-- <link href="css/style.css" type="text/css" rel="stylesheet"> -->
+        <style>
+            * {
+                margin: auto;
+                padding: auto;
+            }
+
+            .top {
+                width: 100%;
+
+                border-bottom: 2px solid #f0f0f0;
+            }
+
+            .top div {
+                width: 1200px;
+                color: #000000;
+                font-family: calibri;
+                padding: 10px;
+                /* text-align: right; */
+            }
+
+            .logo {
+                width: 100%;
+                border-bottom: 2px solid #f0f0f0;
+            }
+
+            .logo div {
+                width: 1200px;
+                font-family: calibri;
+                padding: 10px;
+                text-align: left;
+            }
+
+            .logo div table a {
+                padding: 10px;
+                text-decoration: none;
+                color: gray;
+            }
+
+            .logo div table a:hover {
+                color: #428bca;
+                border-bottom: 2px solid gray;
+            }
+
+            .middle {
+                width: 100%;
+                border-bottom: 2px solid #f0f0f0;
+            }
+
+            .middle div {
+                width: 1200px;
+                height: 400px;
+                font-family: calibri;
+            }
+
+            .middle div p {
+                width: 1000px;
+                font-weight: bold;
+                height: 300px;
+                color: #fff;
+                opacity: 0.2;
+                font-size: 50px;
+                background-color: #000;
+            }
+
+            .bottom {
+                width: 100%;
+                /* border-bottom: 2px solid #f0f0f0; */
+            }
+
+            .bottom div {
+                width: 1200px;
+                color: #fff;
+                font-family: calibri;
+                text-align: right;
+            }
+
+            .bottom div table {
+                padding-top: 30px;
+                width: 1100px;
+                text-align: justify;
+                color: gray;
+                font-size: 20px;
+            }
+
+            .bottom_up {
+                width: 100%;
+                border-bottom: 2px solid #f0f0f0;
+            }
+
+            .bottom_up div {
+                padding-top: 20px;
+                width: 1200px;
+                text-align: center;
+                font-family: forte;
+                font-size: 30px;
+                padding-bottom: 20px;
+            }
+
+            .bottom_up div table {
+                padding-top: 30px;
+                font-size: 30px;
+                width: 1100px;
+                text-align: center;
+                font-family: calibri;
+
+            }
+
+            input[type="text"] {
+                padding: 12px;
+                width: 250px;
+            }
+
+            select {
+                padding: 12px;
+                width: 250px;
+            }
+
+            textarea {
+                padding: 50px;
+                width: 550px;
+            }
+
+
+
+
+            .nav_down {
+                width: 100%;
+                background-color: #000000 !important;
+                border-bottom: 2px solid #f0f0f0;
+            }
+
+            .nav_down div {
+                width: 1200px;
+                color: #fff;
+                background-color: #000;
+                font-family: calibri;
+                padding: 10px;
+                text-align: left;
+            }
+
+
+
+            /* 
+            table {
+                width: 509px;
+            }
+
+            #lightTable {
+                margin-top: 15px;
+                margin-left: 80px;
+                background-color: #fff;
+                border-radius: 12px;
+                text-align: left;
+                width: 1200px;
+            }
+
+            th,
+            td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+
+            tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            th {
+                background: linear-gradient(rgba(72, 200, 188, 1), rgba(74, 243, 226, 1) 100%);
+
+                color: white;
+                cursor: pointer;
+            } */
+            #lightTable {
+                margin-left: 95px;
+                margin-bottom: 0px;
+            }
+
+            table {
+                width: 40%;
+                margin: 20px;
+            }
+
+            th,
+            td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+
+            tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            th {
+                background: linear-gradient(rgba(72, 200, 188, 1), rgba(74, 243, 226, 1) 100%);
+                color: white;
+                cursor: pointer;
+            }
+
+
+
+
+            .pagination {
+                display: inline-block;
+                margin-left: 80px;
+                margin-top: 18px;
+                margin-bottom: 30px;
+            }
+
+            .pagination a {
+                color: black;
+                float: left;
+                padding: 8px 16px;
+                text-decoration: none;
+                margin-left: 5px;
+                margin-bottom: 20px;
+            }
+
+            .page-link {
+                position: relative;
+                padding: 10px 20px;
+                border-radius: 7px;
+                /* border: 1px solid rgb(0, 0, 0); */
+                font-size: 14px;
+                text-transform: uppercase;
+                font-weight: 600;
+                letter-spacing: 2px;
+                background: transparent;
+                color: #fff;
+                overflow: hidden;
+                box-shadow: 0 0 0 0 transparent;
+                -webkit-transition: all 0.2s ease-in;
+                -moz-transition: all 0.2s ease-in;
+                transition: all 0.2s ease-in;
+                text-decoration: none;
+                /* Remove default underline for links */
+            }
+
+            .page-link:hover {
+                background: linear-gradient(to right, #48c6ba 0%, #4af3e2 100%);
+                transition: 1.0s ease;
+                box-shadow: 0 0px 13px rgba(0, 0, 0, 0.3);
+
+
+                /* box-shadow: 0 0 30px 5px rgba(0, 142, 236, 0.815); */
+                -webkit-transition: all 0.2s ease-out;
+                -moz-transition: all 0.2s ease-out;
+                transition: all 0.2s ease-out;
+            }
+
+            .page-link:hover::before {
+                -webkit-animation: sh02 0.5s 0s linear;
+                -moz-animation: sh02 0.5s 0s linear;
+                animation: sh02 0.5s 0s linear;
+            }
+
+
+
+
+            .search-box {
+                margin-left: 7%;
+                font-size: 7px;
+                border: solid 0.3em #000000;
+                display: inline-block;
+                position: relative;
+                border-radius: 2.5em;
+                margin-top: 15px;
+                /* background-color: #fff; */
+                box-shadow: 0 0px 10px rgba(0, 0, 0, 0.3);
+            }
+
+            .search-box input[type=text] {
+                /* font-family: inherit; */
+                /* font-weight: bold; */
+                width: 1.5em;
+                height: 2.5em;
+                padding: 0.3em 2.1em 0.3em 0.4em;
+                border: none;
+                box-sizing: border-box;
+                border-radius: 2.5em;
+                transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55) 150ms;
+            }
+
+            .search-box input[type=text]:focus {
+                outline: none;
+            }
+
+            .search-box input[type=text]:focus,
+            .search-box input[type=text]:not(:placeholder-shown) {
+                width: 13em;
+                transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            }
+
+            .search-box input[type=text]:focus+button[type=reset],
+            .search-box input[type=text]:not(:placeholder-shown)+button[type=reset] {
+                transform: rotate(-45deg) translateY(0);
+                transition: transform 150ms ease-out 800ms;
+            }
+
+            .search-box input[type=text]:focus+button[type=reset]:after,
+            .search-box input[type=text]:not(:placeholder-shown)+button[type=reset]:after {
+                opacity: 1;
+                transition: top 150ms ease-out 950ms, right 150ms ease-out 950ms, opacity 150ms ease 950ms;
+            }
+
+            .search-box button[type=reset] {
+
+                background-color: transparent;
+                width: 1.6em;
+                font-size: 12px;
+                height: 1.9em;
+                border: 0;
+                padding: 0;
+                outline: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                top: 0.55em;
+                right: 0.55em;
+                transform: rotate(-45deg) translateY(2.2em);
+                transition: transform 150ms ease-out 150ms;
+            }
+
+            .search-box button[type=reset]:before,
+            .search-box button[type=reset]:after {
+                content: "";
+                background-color: #000000;
+                width: 0.3em;
+                height: 1.4em;
+                position: absolute;
+            }
+
+            .search-box button[type=reset]:after {
+                transform: rotate(90deg);
+                opacity: 0;
+                transition: transform 150ms ease-out, opacity 150ms ease-out;
+            }
+
+            /* .top a {
+                text-decoration: none;
+                font-size: 24px;
+            } */
+
+            .top a {
+                text-decoration: none;
+                color: #000000;
+                /* Default link color */
+                font-weight: bold;
+                font-size: 22px;
+                position: relative;
+                transition: color 0.3s ease;
+                /* Smooth color transition */
+            }
+
+            .top a::before {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                background-color: #40B3A2;
+                /* Color for the underline */
+                bottom: 0;
+                left: 0;
+                transform: scaleX(0);
+                transform-origin: bottom right;
+                transition: transform 0.5s ease;
+                /* Underline animation */
+            }
+
+            .top a:hover {
+                color: #40B3A2;
+                /* Change link color on hover */
+            }
+
+            .top a:hover::before {
+                transform: scaleX(1);
+                /* Expand the underline on hover */
+                transform-origin: bottom left;
+            }
+        </style>
+
+    </head>
+
+    <body>
+        <div class="top">
+            <div>
+                <!-- Contact Us +91 96366 20000 / 01 | ukh@hospital.com -->
+                <a onclick=" goBack()">Home</a>
+
+            </div>
+        </div>
+
+
+        <div class="bottom">
+            <div>
+                <table border="0">
+                    <tr>
+                        <td width="700px">
+                            <font color="#000"> Welcome to our <mark>Free PHP Courses</mark> </font> <br> <br>
+
+                            <font color="#000" size="6px">Comprehensive collection of free PHP courses</font> <br>
+                            <br>
+
+                            Discover the world of Php programming and dynamic content creation with our free PHP
+                            courses. Whether you're an aspiring web developer or looking to enhance your existing
+                            skills, our PHP courses offer a comprehensive learning experience. From understanding the
+                            fundamentals of PHP scripting to mastering advanced topics like database connectivity and
+                            server-side scripting, our courses are designed to cater to all skill levels.<br><br>
+
+                            <br>
+                        </td>
+
+
+                        <td style="padding-left:20px;">
+                            <img src="/coursImg/AllCourses-Php.jpeg" width="400px">
+                        </td>
+                    </tr>
+
+
+                </table>
+            </div>
+        </div>
+
+        <div class="bottom">
+            <div>
+                <table border="0">
+                    <tr>
+                        <td width="700px">
+
+                            <font color="#000" size="6px">Start your PHP programming journey today and unlock the
+                                potential of this versatile language in the world.</font> <br> <br>
+                            PHP is a versatile and widely-used programming language that serves as the backbone of
+                            countless websites and web applications. With our free PHP courses, you'll delve into the
+                            intricacies of PHP development, learning how to create dynamic web pages, handle user input,
+                            and interact with databases efficiently. Through hands-on projects and real-world examples,
+                            you'll gain the practical skills needed to excel in web development. Join our free PHP
+                            courses and embark on a journey that can lead to a rewarding career in web development.
+                            Whether you aim to build your own web projects, contribute to open-source initiatives, or
+                            pursue a professional path in PHP development, our courses provide the knowledge and
+                            resources to help you succeed. <br>
+
+                            <br>
+                        </td>
+
+
+                        <!-- <td style="padding-left:20px;"> </td> -->
+                    </tr>
+
+
+                </table>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+        <form class="search-box">
+            <input type="text" id="searchInput" placeholder=" " />
+            <button type="reset"></button>
+        </form>
+
+        <table id="lightTable">
+            <thead>
+                <tr>
+                    <th onclick="sortTable(0)">Institute</th>
+                    <th onclick="sortTable(1)">Course</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data rows go here -->
+            </tbody>
+        </table>
+
+        <div class="pagination">
+            <a onclick="changePage(1)" class="page-link" ActiveXObject(1)>1</a>
+            <a onclick="changePage(2)" class="page-link">2</a>
+            <a onclick="changePage(3)" class="page-link">3</a>
+        </div>
+
+
+
+
+
+
+
+
+
+        <div class="nav_down">
+            <div>
+                &copy; CourseSeeker, Find The Best Courses Online...
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <script>
+            // Data for the table (Course, Institute)
+            const data = [
+
+                ['udemy', '<a href="https://www.udemy.com/course/php-for-beginners-/?ranMID=39197&ranEAID=lzX4O%2Fz0LLE&ranSiteID=lzX4O_z0LLE-hDh4zjG7vVQpjo7ysdEUYA&LSNPUBID=lzX4O%2Fz0LLE&utm_source=aff-campaign&utm_medium=udemyads">PHP for Beginners</a>'],
+                ['Great Learning', '<a href="https://www.mygreatlearning.com/academy/learn-for-free/courses/php">PHP for Beginners</a>'],
+                ['classcentral', '<a href="https://www.classcentral.com/subject/php">PHP Courses and Certifications</a>'],
+                ['simplilearn', '<a href="https://www.simplilearn.com/learn-php-basics-free-course-skillup">Introduction to PHP Basics</a>'],
+                ['codecademy', '<a href="https://www.codecademy.com/learn/paths/php-skill">Learn PHP</a>'],
+                ['coursera', '<a href="https://www.coursera.org/learn/database-applications-php">Building Database Applications in PHP</a>'],
+                ['udemy', '<a href="https://www.udemy.com/course/php-for-beginners-how-to-build-an-ecommerce-store/?ranMID=39197&ranEAID=lzX4O%2Fz0LLE&ranSiteID=lzX4O_z0LLE-hDh4zjG7vVSXNW250WaHkg&LSNPUBID=lzX4O%2Fz0LLE&utm_source=aff-campaign&utm_medium=udemyads">PHP for Beginners: How to Build an Ecommerce Store</a>'],
+                ['codecademy', '<a href="https://www.codecademy.com/catalog/language/php">PHP</a>'],
+                ['kinsta', '<a href="https://kinsta.com/blog/php-tutorials/#4-freecodecamps-free-php-tutorial"> FreeCodeCamp Free PHP tutorial</a>'],
+                ['udemy', '<a href="https://www.udemy.com/course/php-mysql-certification-course-for-beginners/?ranMID=39197&ranEAID=lzX4O%2Fz0LLE&ranSiteID=lzX4O_z0LLE-n8oefnsUUr3BRiXaT0k.Iw&LSNPUBID=lzX4O%2Fz0LLE&utm_source=aff-campaign&utm_medium=udemyads">PHP & MySQL - Certification Course for Beginners</a>'],
+                ['kinsta', '<a href="https://kinsta.com/blog/php-tutorials/#5-learn-php-with-codeacademy">Learn PHP with Codeacademy</a>'],
+                ['learnvern', '<a href="https://www.learnvern.com/course/core-php-tutorial">PHP Course For Beginners</a>'],
+                ['alison', '<a href="https://alison.com/course/php-for-beginners">PHP for Beginners</a>'],
+                ['udemy', '<a href="https://www.udemy.com/course/php-and-mysql-for-beginners/">PHP for Beginners Part 2: PDO, MySQL, phpMyAdmin</a>'],
+                ['coursesity', '<a href="https://coursesity.com/course-detail/php-advanced-features">PHP - Advanced Features</a>'],
+                ['shiksha', '<a href="https://www.shiksha.com/online-courses/free-php-courses-certification-training-st619-tg307">Free PHP Courses Online</a>'],
+                ['Dataflair', '<a href="https://data-flair.training/courses/free-php-course/">FREE PHP CERTIFICATION COURSE</a>'],
+                ['coursesity', '<a href="https://coursesity.com/course-detail/introduction-to-php-free-course">Introduction to PHP (Free course)</a>'],
+                ['pluralsight', '<a href="https://www.pluralsight.com/courses/php-get-started">PHP: Get Started</a>'],
+                ['dreamhost', '<a href="https://www.dreamhost.com/blog/learn-php/">How to Learn PHP (Fast & Free)</a>'],
+                ['udemy', '<a href="https://www.udemy.com/course/learn-php-fundamentals-from-scratch/?ranMID=39197&ranEAID=lzX4O%2Fz0LLE&ranSiteID=lzX4O_z0LLE-rTdsB1W6qUO47mzvEuvuJg&LSNPUBID=lzX4O%2Fz0LLE&utm_source=aff-campaign&utm_medium=udemyads">Learn PHP Fundamentals From Scratch</a>'],
+                ['mindluster', '<a href="https://www.mindluster.com/certificate/623">PHP Training</a>'],
+                ['udemy', '<a href="https://www.udemy.com/course/php-for-complete-beginners-includes-msql-object-oriented/?ranMID=39197&ranEAID=lzX4O%2Fz0LLE&ranSiteID=lzX4O_z0LLE-F0i7mV96iL1alGevX3ZSYw&LSNPUBID=lzX4O%2Fz0LLE&utm_source=aff-campaign&utm_medium=udemyads">PHP for Beginners - Become a PHP Master - CMS Project</a>'],
+                ['Codetutsplus', '<a href="https://code.tutsplus.com/php-tutorial-for-beginners-free-7-hour-course--ytc-16c">PHP for Beginners Course</a>'],
+                ['udemy', '<a href="https://www.udemy.com/course/beginners-guide-to-php/?ranMID=39197&ranEAID=lzX4O%2Fz0LLE&ranSiteID=lzX4O_z0LLE-3nrjyChmFFHcM4hF8Z6EpQ&LSNPUBID=lzX4O%2Fz0LLE&utm_source=aff-campaign&utm_medium=udemyads">Learn PHP 7, MySQL, Object-Oriented Programming, PHP Forms</a>'],
+                ['skillshare', '<a href="https://www.skillshare.com/en/browse/php">Online Php Classes</a>'],
+                ['udemy', '<a href="https://www.udemy.com/course/the-complete-web-development-course-learn-by-building-apps/?ranMID=39197&ranEAID=lzX4O%2Fz0LLE&ranSiteID=lzX4O_z0LLE-3nrjyChmFFFaEmhPPOW8Qw&LSNPUBID=lzX4O%2Fz0LLE&utm_source=aff-campaign&utm_medium=udemyads">Projects in PHP and MySQL</a>'],
+                // Add more data here
+            ];
+
+            // Table elements
+            const table = document.getElementById('lightTable');
+            const tbody = table.getElementsByTagName('tbody')[0];
+            const searchInput = document.getElementById('searchInput');
+
+            // Pagination variables
+            const itemsPerPage = 10;
+            let currentPage = 1;
+            changePage(1);
+
+
+            // Sort variables
+            let currentColumn = -1;
+            let ascending = true;
+
+            // Add event listener for search input
+            searchInput.addEventListener('input', filterTable);
+
+            // Function to filter the table
+            function filterTable() {
+                const filter = searchInput.value.toUpperCase();
+                const rows = tbody.getElementsByTagName('tr');
+
+                for (let i = 0; i < rows.length; i++) {
+                    const cells = rows[i].getElementsByTagName('td');
+                    let shouldShow = false;
+
+                    for (let j = 0; j < cells.length; j++) {
+                        const cell = cells[j];
+                        const textValue = cell.textContent || cell.innerText;
+
+                        if (textValue.toUpperCase().indexOf(filter) > -1) {
+                            shouldShow = true;
+                            break;
+                        }
+                    }
+
+                    rows[i].style.display = shouldShow ? '' : 'none';
+                }
+            }
+
+            // Function to update the table based on the current page
+            function updateTable() {
+                tbody.innerHTML = '';
+
+                const startIndex = (currentPage - 1) * itemsPerPage;
+                const endIndex = startIndex + itemsPerPage;
+
+                for (let i = startIndex; i < endIndex; i++) {
+                    const item = data[i];
+                    if (item) {
+                        const row = tbody.insertRow();
+                        const courseCell = row.insertCell(0);
+                        const instituteCell = row.insertCell(1);
+
+                        courseCell.innerHTML = item[0];
+                        instituteCell.innerHTML = item[1];
+                    }
+                }
+            }
+
+            // Function to change the current page
+            function changePage(page) {
+                currentPage = page;
+                updateTable();
+
+            }
+
+            // Function to sort the table
+            function sortTable(column) {
+                if (currentColumn === column) {
+                    ascending = !ascending;
+                } else {
+                    currentColumn = column;
+                    ascending = true;
+                }
+
+                const rows = Array.from(tbody.getElementsByTagName('tr'));
+                rows.sort((a, b, c) => {
+                    const aValue = a.getElementsByTagName('td')[column].textContent;
+                    const bValue = b.getElementsByTagName('td')[column].textContent;
+                    return ascending ? aValue.localeCompare(bValue) : bValue.localeCompare(aValue);
+                });
+
+                rows.forEach(row => tbody.appendChild(row));
+            }
+
+            // Initialize the table
+            updateTable();
+
+            function goBack() {
+                window.history.back();
+            }
+        </script>
+
+    </body>
+
+    </html>

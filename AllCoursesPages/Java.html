@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CourseSeeker</title>
+</head>
+
+<body>
+    <html>
+
+    <head>
+
+
+        <!-- <link href="css/style.css" type="text/css" rel="stylesheet"> -->
+        <style>
+            * {
+                margin: auto;
+                padding: auto;
+            }
+
+            .top {
+                width: 100%;
+
+                border-bottom: 2px solid #f0f0f0;
+            }
+
+            .top div {
+                width: 1200px;
+                color: #000000;
+                font-family: calibri;
+                padding: 10px;
+                /* text-align: right; */
+            }
+
+            .logo {
+                width: 100%;
+                border-bottom: 2px solid #f0f0f0;
+            }
+
+            .logo div {
+                width: 1200px;
+                font-family: calibri;
+                padding: 10px;
+                text-align: left;
+            }
+
+            .logo div table a {
+                padding: 10px;
+                text-decoration: none;
+                color: gray;
+            }
+
+            .logo div table a:hover {
+                color: #428bca;
+                border-bottom: 2px solid gray;
+            }
+
+            .middle {
+                width: 100%;
+                border-bottom: 2px solid #f0f0f0;
+            }
+
+            .middle div {
+                width: 1200px;
+                height: 400px;
+                font-family: calibri;
+            }
+
+            .middle div p {
+                width: 1000px;
+                font-weight: bold;
+                height: 300px;
+                color: #fff;
+                opacity: 0.2;
+                font-size: 50px;
+                background-color: #000;
+            }
+
+            .bottom {
+                width: 100%;
+                /* border-bottom: 2px solid #f0f0f0; */
+            }
+
+            .bottom div {
+                width: 1200px;
+                color: #fff;
+                font-family: calibri;
+                text-align: right;
+            }
+
+            .bottom div table {
+                padding-top: 30px;
+                width: 1100px;
+                text-align: justify;
+                color: gray;
+                font-size: 20px;
+            }
+
+            .bottom_up {
+                width: 100%;
+                border-bottom: 2px solid #f0f0f0;
+            }
+
+            .bottom_up div {
+                padding-top: 20px;
+                width: 1200px;
+                text-align: center;
+                font-family: forte;
+                font-size: 30px;
+                padding-bottom: 20px;
+            }
+
+            .bottom_up div table {
+                padding-top: 30px;
+                font-size: 30px;
+                width: 1100px;
+                text-align: center;
+                font-family: calibri;
+
+            }
+
+            input[type="text"] {
+                padding: 12px;
+                width: 250px;
+            }
+
+            select {
+                padding: 12px;
+                width: 250px;
+            }
+
+            textarea {
+                padding: 50px;
+                width: 550px;
+            }
+
+
+
+
+            .nav_down {
+                width: 100%;
+                background-color: #000000 !important;
+                border-bottom: 2px solid #f0f0f0;
+            }
+
+            .nav_down div {
+                width: 1200px;
+                color: #fff;
+                background-color: #000;
+                font-family: calibri;
+                padding: 10px;
+                text-align: left;
+            }
+
+
+
+            /* 
+            table {
+                width: 509px;
+            }
+
+            #lightTable {
+                margin-top: 15px;
+                margin-left: 80px;
+                background-color: #fff;
+                border-radius: 12px;
+                text-align: left;
+                width: 1200px;
+            }
+
+            th,
+            td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+
+            tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            th {
+                background: linear-gradient(rgba(72, 200, 188, 1), rgba(74, 243, 226, 1) 100%);
+
+                color: white;
+                cursor: pointer;
+            } */
+            #lightTable {
+                margin-left: 95px;
+                margin-bottom: 0px;
+            }
+
+            table {
+                width: 40%;
+                margin: 20px;
+            }
+
+            th,
+            td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+
+            tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            th {
+                background: linear-gradient(rgba(72, 200, 188, 1), rgba(74, 243, 226, 1) 100%);
+                color: white;
+                cursor: pointer;
+            }
+
+
+
+
+            .pagination {
+                display: inline-block;
+                margin-left: 80px;
+                margin-top: 18px;
+            }
+
+            .pagination a {
+                color: black;
+                float: left;
+                padding: 8px 16px;
+                text-decoration: none;
+                margin-left: 5px;
+                margin-bottom: 20px;
+            }
+
+            .page-link {
+                position: relative;
+                padding: 10px 20px;
+                border-radius: 7px;
+                /* border: 1px solid rgb(0, 0, 0); */
+                font-size: 14px;
+                text-transform: uppercase;
+                font-weight: 600;
+                letter-spacing: 2px;
+                background: transparent;
+                color: #fff;
+                overflow: hidden;
+                box-shadow: 0 0 0 0 transparent;
+                -webkit-transition: all 0.2s ease-in;
+                -moz-transition: all 0.2s ease-in;
+                transition: all 0.2s ease-in;
+                text-decoration: none;
+                /* Remove default underline for links */
+            }
+
+            .page-link:hover {
+                background: linear-gradient(to right, #48c6ba 0%, #4af3e2 100%);
+                transition: 1.0s ease;
+                box-shadow: 0 0px 13px rgba(0, 0, 0, 0.3);
+
+
+                /* box-shadow: 0 0 30px 5px rgba(0, 142, 236, 0.815); */
+                -webkit-transition: all 0.2s ease-out;
+                -moz-transition: all 0.2s ease-out;
+                transition: all 0.2s ease-out;
+            }
+
+            .page-link:hover::before {
+                -webkit-animation: sh02 0.5s 0s linear;
+                -moz-animation: sh02 0.5s 0s linear;
+                animation: sh02 0.5s 0s linear;
+            }
+
+
+
+
+            .search-box {
+                margin-left: 7%;
+                font-size: 7px;
+                border: solid 0.3em #000000;
+                display: inline-block;
+                position: relative;
+                border-radius: 2.5em;
+                margin-top: 15px;
+                /* background-color: #fff; */
+                box-shadow: 0 0px 10px rgba(0, 0, 0, 0.3);
+            }
+
+            .search-box input[type=text] {
+                /* font-family: inherit; */
+                /* font-weight: bold; */
+                width: 1.5em;
+                height: 2.5em;
+                padding: 0.3em 2.1em 0.3em 0.4em;
+                border: none;
+                box-sizing: border-box;
+                border-radius: 2.5em;
+                transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55) 150ms;
+            }
+
+            .search-box input[type=text]:focus {
+                outline: none;
+            }
+
+            .search-box input[type=text]:focus,
+            .search-box input[type=text]:not(:placeholder-shown) {
+                width: 13em;
+                transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            }
+
+            .search-box input[type=text]:focus+button[type=reset],
+            .search-box input[type=text]:not(:placeholder-shown)+button[type=reset] {
+                transform: rotate(-45deg) translateY(0);
+                transition: transform 150ms ease-out 800ms;
+            }
+
+            .search-box input[type=text]:focus+button[type=reset]:after,
+            .search-box input[type=text]:not(:placeholder-shown)+button[type=reset]:after {
+                opacity: 1;
+                transition: top 150ms ease-out 950ms, right 150ms ease-out 950ms, opacity 150ms ease 950ms;
+            }
+
+            .search-box button[type=reset] {
+
+                background-color: transparent;
+                width: 1.6em;
+                font-size: 12px;
+                height: 1.9em;
+                border: 0;
+                padding: 0;
+                outline: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                top: 0.55em;
+                right: 0.55em;
+                transform: rotate(-45deg) translateY(2.2em);
+                transition: transform 150ms ease-out 150ms;
+            }
+
+            .search-box button[type=reset]:before,
+            .search-box button[type=reset]:after {
+                content: "";
+                background-color: #000000;
+                width: 0.3em;
+                height: 1.4em;
+                position: absolute;
+            }
+
+            .search-box button[type=reset]:after {
+                transform: rotate(90deg);
+                opacity: 0;
+                transition: transform 150ms ease-out, opacity 150ms ease-out;
+            }
+
+            /* .top a {
+                text-decoration: none;
+                font-size: 24px;
+            } */
+
+            .top a {
+                text-decoration: none;
+                color: #000000;
+                /* Default link color */
+                font-weight: bold;
+                font-size: 22px;
+                position: relative;
+                transition: color 0.3s ease;
+                /* Smooth color transition */
+            }
+
+            .top a::before {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                background-color: #40B3A2;
+                /* Color for the underline */
+                bottom: 0;
+                left: 0;
+                transform: scaleX(0);
+                transform-origin: bottom right;
+                transition: transform 0.5s ease;
+                /* Underline animation */
+            }
+
+            .top a:hover {
+                color: #40B3A2;
+                /* Change link color on hover */
+            }
+
+            .top a:hover::before {
+                transform: scaleX(1);
+                /* Expand the underline on hover */
+                transform-origin: bottom left;
+            }
+        </style>
+
+    </head>
+
+    <body>
+        <div class="top">
+            <div>
+                <!-- Contact Us +91 96366 20000 / 01 | ukh@hospital.com -->
+                <a onclick=" goBack()">Home</a>
+
+            </div>
+        </div>
+
+
+        <div class="bottom">
+            <div>
+                <table border="0">
+                    <tr>
+                        <td width="700px">
+                            <font color="#000"> Welcome to <mark>Java Cources</mark> </font> <br> <br>
+
+                            <font color="#000" size="6px">Discover our collection of free Java courses</font> <br>
+                            <br>
+
+                            The power of Java is the most versatile and widely-used programming languages. Whether
+                            you're a Java novice or a seasoned developer, our free courses cater to all skill levels.
+                            Dive into the world of object-oriented programming, learn to build robust applications, and
+                            master the art of Java development without any cost. Explore the core concepts, advanced
+                            techniques, and best practices to accelerate your Java journey. Start your Java learning
+                            adventure today and enhance your coding skills with our comprehensive and cost-free courses.
+                            <br><br>
+
+                            <br>
+                        </td>
+
+
+                        <td style="padding-left:20px;"> <img src="/coursImg/Free-Java_Courses.jpeg" width="400px"></td>
+                    </tr>
+
+
+                </table>
+            </div>
+        </div>
+
+        <div class="bottom">
+            <div>
+                <table border="0">
+                    <tr>
+                        <td width="700px">
+
+                            <font color="#000" size="6px"> Unlock Your Potential with Free Java Courses</font> <br> <br>
+
+                            Courses cover a range of Java topics, from the basics of syntax and data structures to
+                            advanced topics like multithreading, database connectivity, and web development with Java.
+                            You'll have access to hands-on exercises and real-world projects, allowing you to apply what
+                            you've learned in practical scenarios.
+
+                            Java is the go-to language for building applications, from Android mobile apps to
+                            enterprise-level software. With our free Java courses, you can gain a strong foundation and
+                            stay updated with the latest trends and updates in the Java ecosystem.
+
+                            Take the first step towards becoming a proficient Java developer. Enroll in our free Java
+                            courses and embark on a learning journey that can open doors to countless opportunities in
+                            the world of programming and software development. Start learning today and harness the
+                            potential of Java!" <br>
+
+                            <br>
+                        </td>
+
+
+                        <!-- <td style="padding-left:20px;"> </td> -->
+                    </tr>
+
+
+                </table>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+        <form class="search-box">
+            <input type="text" id="searchInput" placeholder=" " />
+            <button type="reset"></button>
+        </form>
+
+        <table id="lightTable">
+            <thead>
+                <tr>
+                    <th onclick="sortTable(0)">Course</th>
+                    <th onclick="sortTable(1)">Institute</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data rows go here -->
+            </tbody>
+        </table>
+
+        <div class="pagination">
+            <a onclick="changePage(1)" class="page-link" ActiveXObject(1)>1</a>
+            <a onclick="changePage(2)" class="page-link">2</a>
+            <a onclick="changePage(3)" class="page-link">3</a>
+        </div>
+
+
+
+
+
+
+
+
+
+        <div class="nav_down">
+            <div>
+                &copy; CourseSeeker, Find The Best Courses Online...
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <script>
+            // Data for the table (Course, Institute)
+            const data = [
+                ['labex', '<a href="https://labex.io/courses/getting-started-with-java">Getting Started with Java</a>'],
+                ['Great Learning', '<a href="https://www.mygreatlearning.com/academy/learn-for-free/courses/java-programming">Java Programming</a>'],
+                ['scaler', '<a href="https://www.scaler.com/topics/course/java-beginners/">Java Course - Mastering the Fundamentals</a>'],
+                ['Udemy', '<a href="https://www.udemy.com/course/java-tutorial/">Java Tutorial for Complete Beginners</a>'],
+                ['interviewbit', '<a href="https://www.interviewbit.com/blog/best-free-java-course/">Best Free Java Course</a>'],
+                ['coursera', '<a href="https://www.coursera.org/learn/java-programming">Java Programming: Solving Problems with Software</a>'],
+                ['educative', '<a href="https://www.educative.io/courses/learn-java-from-scratch?utm_campaign=brand_educative&utm_source=google&utm_medium=ppc&utm_content=performance_max_india&eid=5082902844932096&utm_term=&utm_campaign=%5BNew%5D+Performance+Max&utm_source=adwords&utm_medium=ppc&hsa_acc=5451446008&hsa_cam=18931439518&hsa_grp=&hsa_ad=&hsa_src=x&hsa_tgt=&hsa_kw=&hsa_mt=&hsa_net=adwords&hsa_ver=3&gad_source=1&gclid=Cj0KCQjwy4KqBhD0ARIsAEbCt6h1N548f04H3dK4K7jnRjUOXeom0AI08aVrBmMDQAYNEBcMZWMbmgUaAljtEALw_wcB">Learn Java from Scratch</a>'],
+                ['classcentral', '<a href="https://www.classcentral.com/subject/java">Java Courses and Certifications</a>'],
+                ['simplilearn', '<a href="https://www.simplilearn.com/free-java-beginners-course-skillup">Java Programming for Beginners: A-Z Java Fundamentals in one hour</a>'],
+                ['educative', '<a href="https://www.educative.io/courses/learn-to-code-java-for-absolute-beginners">Learn to Code: Java for Absolute Beginners</a>'],
+                ['udacity', '<a href="https://www.udacity.com/course/java-programming-basics--ud282">Intro to Java: Functional Programming</a>'],
+                ['edx', '<a href="https://www.edx.org/learn/java">Learn Java with online courses and programs</a>'],
+                ['Udemy', '<a href="https://www.udemy.com/course/java-programming-basics/">Java Programming Basics</a>'],
+                ['educative', '<a href="https://www.educative.io/courses/learn-java-from-scratch?affiliate_id=5073518643380224">Learn Java from Scratch</a>'],
+                ['Udemy', '<a href="https://www.udemy.com/course/java-programming-beginner-to-guru/?ranMID=39197&ranEAID=JVFxdTr9V80&ranSiteID=JVFxdTr9V80-3lQd3tleOCZz_CCFgu0o1w&LSNPUBID=JVFxdTr9V80&utm_source=aff-campaign&utm_medium=udemyads">Java Programming: Beginner to Guru</a>'],
+                ['coursera', '<a href="https://www.coursera.org/specializations/java-programming?irclickid=z4aSOBzqHxyPRp01Qw3PKWw9UkFQAnXuEzqHXg0&irgwc=1&utm_medium=partners&utm_source=impact&utm_campaign=3294490&utm_content=b2c">Java Programming and Software Engineering Fundamentals Specialization</a>'],
+                ['codecademy', '<a href="https://www.codecademy.com/learn/learn-java?periods=year&plan_id=proGoldAnnualV2&utm_source=pepperjam&utm_medium=affiliate&utm_term=214453&clickId=4543353630&pj_creativeid=8-12462&pj_publisherid=214453">Learn Java</a>'],
+                ['intellipaat', '<a href="https://intellipaat.com/academy/course/java-training/">Free Online Java Certification Course</a>'],
+                ['scaler', '<a href="https://www.scaler.com/topics/course/java-beginners/">Java Course - Mastering</a>'],
+                ['udacity', '<a href="https://www.udacity.com/course/java-programming-nanodegree--nd079">Java Programming</a>'],
+                ['Dataflair', '<a href="https://data-flair.training/courses/free-java-course/">FREE JAVA CERTIFICATION COURSE</a>'],
+                ['alison', '<a href="https://alison.com/course/java-programming-for-complete-beginners">Java Programming For Complete Beginners</a>'],
+                ['whizlabs', '<a href="https://www.whizlabs.com/ocpjd-java-se-11-programmer-i/">Java SE 11 Programmer I [1Z0-815] [Retired]</a>'],
+                ['Udemy', '<a href="https://www.udemy.com/course/how-to-connect-java-jdbc-to-mysql/">Java Database Connection: JDBC and MySQL</a>'],
+            ];
+
+            // Table elements
+            const table = document.getElementById('lightTable');
+            const tbody = table.getElementsByTagName('tbody')[0];
+            const searchInput = document.getElementById('searchInput');
+
+            // Pagination variables
+            const itemsPerPage = 10;
+            let currentPage = 1;
+            changePage(1);
+
+
+            // Sort variables
+            let currentColumn = -1;
+            let ascending = true;
+
+            // Add event listener for search input
+            searchInput.addEventListener('input', filterTable);
+
+            // Function to filter the table
+            function filterTable() {
+                const filter = searchInput.value.toUpperCase();
+                const rows = tbody.getElementsByTagName('tr');
+
+                for (let i = 0; i < rows.length; i++) {
+                    const cells = rows[i].getElementsByTagName('td');
+                    let shouldShow = false;
+
+                    for (let j = 0; j < cells.length; j++) {
+                        const cell = cells[j];
+                        const textValue = cell.textContent || cell.innerText;
+
+                        if (textValue.toUpperCase().indexOf(filter) > -1) {
+                            shouldShow = true;
+                            break;
+                        }
+                    }
+
+                    rows[i].style.display = shouldShow ? '' : 'none';
+                }
+            }
+
+            // Function to update the table based on the current page
+            function updateTable() {
+                tbody.innerHTML = '';
+
+                const startIndex = (currentPage - 1) * itemsPerPage;
+                const endIndex = startIndex + itemsPerPage;
+
+                for (let i = startIndex; i < endIndex; i++) {
+                    const item = data[i];
+                    if (item) {
+                        const row = tbody.insertRow();
+                        const courseCell = row.insertCell(0);
+                        const instituteCell = row.insertCell(1);
+
+                        courseCell.innerHTML = item[0];
+                        instituteCell.innerHTML = item[1];
+                    }
+                }
+            }
+
+            // Function to change the current page
+            function changePage(page) {
+                currentPage = page;
+                updateTable();
+
+            }
+
+            // Function to sort the table
+            function sortTable(column) {
+                if (currentColumn === column) {
+                    ascending = !ascending;
+                } else {
+                    currentColumn = column;
+                    ascending = true;
+                }
+
+                const rows = Array.from(tbody.getElementsByTagName('tr'));
+                rows.sort((a, b, c) => {
+                    const aValue = a.getElementsByTagName('td')[column].textContent;
+                    const bValue = b.getElementsByTagName('td')[column].textContent;
+                    return ascending ? aValue.localeCompare(bValue) : bValue.localeCompare(aValue);
+                });
+
+                rows.forEach(row => tbody.appendChild(row));
+            }
+
+            // Initialize the table
+            updateTable();
+
+            function goBack() {
+                window.history.back();
+            }
+        </script>
+
+    </body>
+
+    </html>

@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Css/style.css">
+    <link rel="stylesheet" href="/Css/Footer.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <title>CourseSeeker</title>
+
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        /* Create two unequal columns that float next to each other */
+        /* Left column */
+        .leftcolumn {
+            /* float: ; */
+            width: 100%;
+            box-shadow: 0 5px 10px rgba(107, 107, 107, 0.5);
+
+        }
+
+
+        /* Add a card effect for articles */
+        .card {
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 5px 10px rgba(107, 107, 107, 0.3);
+
+            margin-top: 1px;
+        }
+
+        .card p {
+            font-size: 18px;
+        }
+
+        .card p a {
+            text-decoration: none;
+            font-size: 22px;
+            margin-left: 10px;
+        }
+
+        .card p a:hover {
+            color: #40B3A2;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 20px;
+            text-align: center;
+            background: #ddd;
+            margin-top: 20px;
+        }
+
+        /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 800px) {
+
+            .leftcolumn,
+            .rightcolumn {
+                width: 100%;
+                padding: 0;
+            }
+        }
+
+        /* Style the "fakeimg" divs with background images */
+        .fakeimg {
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+        }
+
+
+
+
+
+
+
+
+
+        button {
+            display: flex;
+            height: 3em;
+            width: 100px;
+            align-items: center;
+            justify-content: center;
+            background-color: #eeeeee4b;
+            border-radius: 3px;
+            letter-spacing: 1px;
+            transition: all 0.2s linear;
+            cursor: pointer;
+            border: none;
+            background-color: #fff;
+            margin-top: 15px;
+            margin-left: 65px;
+            float: right;
+            margin-right: 20px;
+        }
+
+        button>svg {
+            margin-right: 5px;
+            margin-left: 5px;
+            font-size: 20px;
+            transition: all 0.4s ease-in;
+        }
+
+        button:hover>svg {
+            font-size: 1.2em;
+            transform: translateX(-5px);
+        }
+
+        button:hover {
+            background-image: linear-gradient(to right, #48c6ba 0%, #4af3e2 100%);
+            box-shadow: 9px 9px 33px #d1d1d1, -9px -9px 33px #ffffff;
+            transform: translateY(-2px);
+        }
+
+        body {
+            background: #ffffff;
+            box-sizing: border-box;
+        }
+
+        .blog-container {
+            background: #fff;
+            border-radius: 5px;
+            /* box-shadow: rgba(0, 0, 0, 0.2) 0 4px 2px -2px;  */
+            font-family: "adelle-sans", sans-serif;
+            font-weight: 100;
+            margin: 48px auto;
+            width: 20rem;
+            height: 45rem;
+            box-shadow: 0 5px 10px rgba(107, 107, 107, 0.5);
+            float: left;
+            margin-left: 30px;
+            margin-top: 20px;
+        }
+
+        @media screen and (min-width: 480px) {
+            .blog-container {
+                width: 28rem;
+            }
+        }
+
+        @media screen and (min-width: 767px) {
+            .blog-container {
+                width: 40rem;
+            }
+        }
+
+        @media screen and (min-width: 959px) {
+            .blog-container {
+                width: 40rem;
+            }
+        }
+
+        .blog-container a {
+            color: #4d4dff;
+            text-decoration: none;
+            transition: 0.25s ease;
+        }
+
+        .blog-container a:hover {
+            border-color: #3ea898;
+            color: #40B3A2;
+        }
+
+        /* .blog-cover {
+  background-size: cover;
+  text-align: center;
+  border-radius: 5px 5px 0 0;
+  height: 20rem;
+  box-shadow: inset rgba(0, 0, 0, 0.2) 0 64px 64px 16px;
+} */
+
+        .blog-cover {
+            /* background: url("/coursImg/StanfordUniversityCourses.jpeg"); */
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            border-radius: 5px 5px 0 0;
+            height: 20rem;
+            box-shadow: inset rgba(0, 0, 0, 0.2) 0 64px 64px 16px;
+        }
+
+        .blog-author,
+        .blog-author--no-cover {
+            margin: 0 auto;
+            padding-top: 0.125rem;
+            width: 80%;
+        }
+
+        .blog-author h3::before,
+        .blog-author--no-cover h3::before {
+            background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/17779/russ.jpeg");
+            background-size: cover;
+            border-radius: 50%;
+            content: " ";
+            display: inline-block;
+            height: 32px;
+            margin-right: 0.5rem;
+            position: relative;
+            top: 8px;
+            width: 32px;
+        }
+
+        .blog-author h3 {
+            color: #fff;
+            font-weight: 100;
+        }
+
+        .blog-author--no-cover h3 {
+            color: #999999;
+            font-weight: 100;
+        }
+
+        .blog-body {
+            margin: 15px auto;
+            width: 95%;
+        }
+
+        .video-body {
+            height: 100%;
+            width: 100%;
+        }
+
+        .blog-title h1 a {
+            color: #333;
+            font-weight: 100;
+        }
+
+        .blog-summary p {
+            color: #4d4d4d;
+        }
+
+        .blog-tags ul {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .blog-tags li+li {
+            margin-left: 0.5rem;
+        }
+
+        .blog-tags a {
+            border: 1px solid #999999;
+            border-radius: 3px;
+            color: #999999;
+            font-size: 0.75rem;
+            height: 1.5rem;
+            line-height: 1.5rem;
+            letter-spacing: 1px;
+            padding: 0 0.5rem;
+            text-align: center;
+            text-transform: uppercase;
+            white-space: nowrap;
+            width: 5rem;
+        }
+
+        .blog-footer {
+            border-top: 1px solid #e6e6e6;
+            margin: 15px auto;
+            padding-bottom: 0.125rem;
+            width: 95%;
+        }
+
+        .blog-footer ul {
+            margin-top: 30px;
+            list-style: none;
+            display: flex;
+            flex: row wrap;
+            justify-content: flex-end;
+            padding-left: 0;
+        }
+
+        .blog-footer p a {
+            color: #4d4d4d;
+            font-size: 15px;
+            height: 1.5rem;
+            letter-spacing: 1px;
+            line-height: 1.5rem;
+            text-align: center;
+            text-transform: uppercase;
+            position: relative;
+            white-space: nowrap;
+        }
+
+        .blog-footer li a {
+            color: #999999;
+        }
+
+        .comments {
+            margin-right: 1rem;
+        }
+
+        .published-date {
+            border: 1px solid #999999;
+            border-radius: 3px;
+            padding: 0 0.5rem;
+        }
+
+        .numero {
+            position: relative;
+            top: -0.5rem;
+        }
+
+        .icon-star,
+        .icon-bubble {
+            fill: #999999;
+            height: 24px;
+            margin-right: 0.5rem;
+            transition: 0.25s ease;
+            width: 24px;
+        }
+
+        .icon-star:hover,
+        .icon-bubble:hover {
+            fill: #ff4d4d;
+        }
+
+
+        .container-u {
+            padding: 55px 1px;
+        }
+
+
+
+        .section-subtitle {
+            color: #40B3A2;
+            text-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 33px;
+            letter-spacing: 2px;
+            margin-block-end: 5px;
+            text-align: center;
+
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <button>
+        <svg height="16" width="16" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1024 1024">
+            <path
+                d="M874.690416 495.52477c0 11.2973-9.168824 20.466124-20.466124 20.466124l-604.773963 0 188.083679 188.083679c7.992021 7.992021 7.992021 20.947078 0 28.939099-4.001127 3.990894-9.240455 5.996574-14.46955 5.996574-5.239328 0-10.478655-1.995447-14.479783-5.996574l-223.00912-223.00912c-3.837398-3.837398-5.996574-9.046027-5.996574-14.46955 0-5.433756 2.159176-10.632151 5.996574-14.46955l223.019353-223.029586c7.992021-7.992021 20.957311-7.992021 28.949332 0 7.992021 8.002254 7.992021 20.957311 0 28.949332l-188.073446 188.073446 604.753497 0C865.521592 475.058646 874.690416 484.217237 874.690416 495.52477z">
+            </path>
+        </svg>
+        <span onclick=" goBack()">Go Back</span>
+    </button>
+
+
+
+    <div class="container-u">
+
+        <p class="section-subtitle">Top University Courses</p>
+
+        <div class="blog-container">
+            <div class="blog-header">
+                <div>
+                    <img class="blog-cover" src="/coursImg/StanfordUniversityCourses.jpeg" alt="">
+                </div>
+            </div>
+            <div class="blog-body">
+                <div class="blog-title">
+                    <h1><a href="#">Stanford University Courses</a></h1>
+                </div>
+                <div class="blog-summary">
+                    <p>"Explore world-class education with Stanford University Courses – a gateway to cutting-edge
+                        knowledge and transformative learning experiences."
+                        "Elevate your skills with expert-led courses, up-to-date content, and personalized learning
+                        paths tailored to your success."</p>
+                </div>
+                <div class="blog-tags">
+                    <ul>
+                        <li><a href="https://online.stanford.edu/free-courses" target="_blank">Explore More</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="blog-footer">
+                <p>
+                    <a href="https://www.coursera.org/specializations/algorithms" target="_blank">1. Algorithms
+                        Specialization - On:- coursera
+                    </a>
+                </p>
+                <p>
+                    <a href="https://www.coursera.org/specializations/machine-learning-introduction" target="_blank">2.
+                        Machine Learning Specialization - On:- coursera</a>
+                </p>
+                <p>
+                    <a href="https://www.coursera.org/specializations/ai-healthcare" target="_blank">3. AI in Healthcare
+                        Specialization - On:- coursera
+                    </a>
+                </p>
+                <p>
+                    <a href="https://www.coursera.org/learn/mathematical-thinking" target="_blank">4. Introduction to
+                        Mathematical Thinking - On:- coursera</a>
+                </p>
+                <p>
+                    <a href="https://www.coursera.org/learn/social-economic-networks" target="_blank">5. Social and
+                        Economic Networks: Models and Analysis - On:- coursera</a>
+                </p>
+                <p>
+                    <a href="https://www.coursera.org/learn/organizational-analysis" target="_blank">6. Organizational
+                        Analysis - On:- coursera</a>
+                </p>
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+        <div class="blog-container">
+            <div class="blog-header">
+                <div>
+                    <img class="blog-cover" src="/coursImg/YaleUniversityCourses.jpg" alt="">
+                </div>
+            </div>
+            <div class="blog-body">
+                <div class="blog-title">
+                    <h1><a href="#">Yale University Courses</a></h1>
+                </div>
+                <div class="blog-summary">
+                    <p>"Enrich your educational journey with Yale University Courses, where academic excellence meets a
+                        legacy of global impact.""Immerse yourself in top-tier learning experiences led by distinguished
+                        faculty, offering diverse courses that shape leaders and innovators."</p>
+                </div>
+                <div class="blog-tags">
+                    <ul>
+                        <li><a href="https://www.yale.edu/" target="_blank">Explore More</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="blog-footer">
+                <p><a href="https://www.coursera.org/learn/financial-markets-global?irclickid=z4aSOBzqHxyPRp01Qw3PKWw9UkFQtnWWEzoEVo0&irgwc=1&utm_medium=partners&utm_source=impact&utm_campaign=397676&utm_content=b2c"
+                        target="_blank">1. Financial Markets coursera - On:- coursera</a></p>
+                <p><a href="https://www.coursera.org/learn/introduction-psychology?irclickid=z4aSOBzqHxyPRp01Qw3PKWw9UkFQtnWXEzoEVo0&irgwc=1&utm_medium=partners&utm_source=impact&utm_campaign=397676&utm_content=b2c"
+                        target="_blank">2. Introduction to Psychology - On:- coursera</a></p>
+                <p><a href="https://www.coursera.org/learn/negotiation?irclickid=z4aSOBzqHxyPRp01Qw3PKWw9UkFQtnWnEzoEVo0&irgwc=1&utm_medium=partners&utm_source=impact&utm_campaign=397676&utm_content=b2c"
+                        target="_blank">3. "Negotiation Mastery: A Strategic Playbook" - On:- coursera
+                    </a></p>
+                <p><a href="https://www.coursera.org/learn/introclassicalmusic?irclickid=z4aSOBzqHxyPRp01Qw3PKWw9UkFQtnWvEzoEVo0&irgwc=1&utm_medium=partners&utm_source=impact&utm_campaign=397676&utm_content=b2c"
+                        target="_blank">4. Introduction to Classical Music - On:- coursera</a></p>
+                <p><a href="https://www.coursera.org/learn/everyday-parenting?irclickid=z4aSOBzqHxyPRp01Qw3PKWw9UkFQtnWPEzoEVo0&irgwc=1&utm_medium=partners&utm_source=impact&utm_campaign=397676&utm_content=b2c"
+                        target="_blank">5. Everyday Parenting: The ABCs of Child Rearing - On:- coursera</a></p>
+                <p><a href="https://www.coursera.org/learn/moral-politics" target="_blank">6. Moral Foundations of
+                        Politics - On:- coursera</a></p>
+                <p><a href="https://www.coursera.org/learn/law-student" target="_blank">7. A Law Student's Toolkit -
+                        On:- coursera</a></p>
+                <p><a href="https://www.coursera.org/learn/global-financial-crisis" target="_blank">8. The Global
+                        Financial Crisis - On:- coursera</a></p>
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+        <div class="blog-container">
+            <div class="blog-header">
+                <div>
+                    <img class="blog-cover" src="/coursImg/Berrill_new-branding_2018-scaled.jpg" alt="">
+                </div>
+            </div>
+            <div class="blog-body">
+                <div class="blog-title">
+                    <h1><a href="#">The Open University Courses</a></h1>
+                </div>
+                <div class="blog-summary">
+                    <p>"Enrich your educational journey with Yale University Courses, where academic excellence meets a
+                        legacy of global impact.""Immerse yourself in top-tier learning experiences led by distinguished
+                        faculty, offering diverse courses that shape leaders and innovators."</p>
+                </div>
+                <div class="blog-tags">
+                    <ul>
+                        <li><a href="https://www.yale.edu/" target="_blank">Explore More</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="blog-footer">
+                <p><a href="https://www.classcentral.com/course/openlearn-science-maths-technology-introduction-cyber-security-stay-safe-online-95542"
+                        target="_blank">1. Introduction to cyber security: stay safe online - On:- classcentral</a></p>
+                <p><a href="https://www.classcentral.com/course/openlearn-education-development-creativity-community-and-ict-95412"
+                        target="_blank">2. Creativity, community and ICT - On:- classcentral</a></p>
+                <p><a href="https://www.classcentral.com/course/openlearn-society-politics-law-sociology-getting-started-spss-96030"
+                        target="_blank">3. Getting started with SPSS - On:- classcentral
+                    </a></p>
+                <p><a href="https://www.classcentral.com/course/openlearn-science-maths-technology-an-introduction-web-applications-architecture-96058"
+                        target="_blank">4. An introduction web applications architecture- On:- classcentral</a></p>
+                <p><a href="https://www.classcentral.com/course/advanced-machine-learning-10341" target="_blank">5.
+                        Advanced Machine Learning - On:- classcentral</a></p>
+                <p><a href="https://www.classcentral.com/course/openlearn-education-development-ai-matters-95342"
+                        target="_blank">6. AI matters - On:- classcentral</a></p>
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+        <div class="blog-container">
+            <div class="blog-header">
+                <div>
+                    <img class="blog-cover" src="/coursImg/HarvardUniversityCourses.jpeg" alt="">
+                </div>
+            </div>
+            <div class="blog-body">
+                <div class="blog-title">
+                    <h1><a href="#">Harvard University Courses</a></h1>
+                </div>
+                <div class="blog-summary">
+                    <p>Embark on an educational journey of distinction with Harvard University Courses – where
+                        innovation meets tradition, shaping leaders for a dynamic world."Immerse yourself in
+                        unparalleled expertise, guided by Harvard's renowned faculty. Elevate your career and broaden
+                        your horizons through world-class education.</p>
+                </div>
+                <div class="blog-tags">
+                    <ul>
+                        <li><a href="https://pll.harvard.edu/catalog/free" target="_blank">Explore More</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="blog-footer">
+                <p><a href="https://pll.harvard.edu/course/data-science-capstone/2023-10" target="_blank">1.Data
+                        Science - On:- harvard</a></p>
+                <p><a href="https://pll.harvard.edu/course/data-analysis-life-sciences-4-high-dimensional-data-analysis"
+                        target="_blank">2.High-Dimensional Data Analysis - On:- harvard</a></p>
+                <p><a href="https://pll.harvard.edu/course/science-corresponding-busy-people-webinar"
+                        target="_blank">3.Science of Corresponding with Busy People Webinar - On:- harvard </a></p>
+                <p><a href="https://pll.harvard.edu/course/cs50s-introduction-programming-scratch"
+                        target="_blank">4.CS50's Introduction to Programming with Scratch - On:- harvard </a></p>
+                <p><a href="https://pll.harvard.edu/course/global-news-technology-leadership-challenging-times"
+                        target="_blank">5.Technology Leadership in Challenging Times - On:- harvard</a>
+                </p>
+                <p><a href="https://pll.harvard.edu/course/chinas-first-empires-and-the-rise-of-buddhism"
+                        target="_blank">6.Chinas First Empires and the Rise of Buddhism - On:- harvard </a></p>
+                <p><a href="https://pll.harvard.edu/course/our-information-emergency-navigating-media-environment-2021"
+                        target="_blank">7.Media Crisis: Navigating Information Emergencies - On:- harvard</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+
+    <!-- <script src="/Js/script.js"></script> -->
+</body>
+
+</html>

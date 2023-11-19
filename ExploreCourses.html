@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="Css/style.css">
+  <link rel="stylesheet" href="Css/Footer.css">
+  <link rel="stylesheet" href="Css/ExploreCoursesSlider.Css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+  <title>CourseSeeker</title>
+</head>
+
+<body>
+  <nav>
+    <ul>
+      <li class="submenu"><a href="#" title="">All Courses▾</a>
+        <ul class="megamenu">
+          <ul>
+            <h4>Programming Languages</h4>
+            <li><a href="AllCoursesPages/Python.html">Python</a></li>
+            <li><a href="AllCoursesPages/Java.html">Java</a></li>
+            <li><a href="AllCoursesPages/CLanguage.html">C</a></li>
+            <li><a href="AllCoursesPages/C++.html">C++</a></li>
+            <li><a href="AllCoursesPages/Php.html">PHP</a></li>
+          </ul>
+          <ul>
+            <h4>Data Science</h4>
+            <li><a href="AllCoursesPages/Rprogramming.html">R Programming</a></li>
+            <li><a href="AllCoursesPages/Sql&MySql.html">SQL &#38 MySQL </a></li>
+            <li><a href="AllCoursesPages/DataAnalytics.html">Data Analytics</a></li>
+            <li><a href="AllCoursesPages/Python.html">Python</a></li>
+          </ul>
+          <ul>
+            <h4>Business</h4>
+            <li><a href="AllCoursesPages/Excel.html">Excel</a></li>
+            <li><a href="AllCoursesPages/PowerBi.html">Power Bi</a></li>
+            <li><a href="AllCoursesPages/BusinessAnalytices.html">Business Analytics</a></li>
+          </ul>
+          <ul>
+            <h4>Development</h4>
+            <li><a href="AllCoursesPages/FrontEnd.html">Front-End-Development</a></li>
+            <li><a href="AllCoursesPages/BackEnd.html">Back-End-Development</a></li>
+            <li><a href="AllCoursesPages/FullStack.html">FullStack -Development</a></li>
+          </ul>
+          <ul>
+            <h4>Marketing</h4>
+            <li><a href="AllCoursesPages/DigitalMarketing.html">Digital Marketing</a></li>
+            <li><a href="AllCoursesPages/EcommerceMarketing.html">E Commerce Marketing</a></li>
+            <li><a href="AllCoursesPages/InstgramMarketing.html">Instagram Marketing</a></li>
+            <li><a href="AllCoursesPages/FacebookMarketing.html">Facebook Marketinge</a></li>
+          </ul>
+
+          <ul>
+            <h4>More</h4>
+            <li><a href="#">Arts & Crafts</a></li>
+            <li><a href="#">Economics Courses</a></li>
+            <li><a href="#">Blockchain Courses</a></li>
+          </ul>
+        </ul>
+      </li>
+      <!-- This is the 2 part -->
+      <li class="submenu"><a href="#" title="">Free Courses▾</a>
+        <ul class="megamenu">
+          <ul>
+            <li><a href="#">Free Online Courses</a></li>
+            <li><a href="#">Free Certification Courses</a></li>
+            <li><a href="#">Free Harvard University Courses</a></li>
+          </ul>
+          <ul>
+            <li><a href="#">Free MIT Courses</a></li>
+            <li><a href="#">Free Excel Courses</a></li>
+            <li><a href="#">Free Google Courses</a></li>
+          </ul>
+          <ul>
+            <li><a href="#">Free Finance Courses</a></li>
+            <li><a href="#">Free Digital Marketing Courses</a></li>
+            <li><a href="#">Free Pers onal Development Courses</a></li>
+          </ul>
+        </ul>
+      </li>
+      <!-- This is the 3 part -->
+      <li class="submenu"><a href="index.html" title="">Home</a>
+
+      </li>
+
+    </ul>
+  </nav>
+
+  <div class="main">
+
+    <div id="myBtnContainer">
+      <div class="container">
+
+        
+        <h1 class="heading"><button class   ="button2 " onclick="filterSelection('all')">All Courses</button></h1>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+        
+        <div class="wrapper">
+          <div class="icon"><i id="left" class="fa-solid fa-angle-left"></i></div>
+          <ul class="tabs-box">
+            <!-- <button class="tab" onclick="filterSelection('Watch')">Watches</button>  -->
+            <li class="tab" onclick="filterSelection('Python')">Python</li>
+            <li class="tab" onclick="filterSelection('Java')">Java</li>
+            <!-- <li class="tab active">JavaScript</li> -->
+            <li class="tab" onclick="filterSelection('CLanguage')">C language</li>
+            <li class="tab" onclick="filterSelection('C++')">C++</li>
+            <li class="tab" onclick="filterSelection('Php')">Php</li>
+            <li class="tab" onclick="filterSelection('Rprogramming')">Rprogramming</li>
+            <li class="tab" onclick="filterSelection('SQlMysql')">SQl,MySQl</li>
+            <li class="tab" onclick="filterSelection('DataAnalytics')">Data Analytics</li>
+            <li class="tab" onclick="filterSelection('DataAnalytics')">Front-End-Development</li>
+            <li class="tab" onclick="filterSelection('DataAnalytics')">Back-End-Development</li>
+
+            <li class="tab">Data Structure</li>
+          </ul>
+          <div class="icon"><i id="right" class="fa-solid fa-angle-right"></i></div>
+
+        </div>
+
+        <!-- </div> -->
+
+
+        <div class="row">
+          <div class="column Rprogramming">
+            <a href="https://www.classcentral.com/course/r-programming-harvard-university-data-science-r-b-9253"
+              target="_blank">
+              <div class="content">
+                <img src="coursImg/Explor-R3.jpeg" alt="Python Images" style="width:100%">
+                <h4>Data Science: R Basics</h4>
+                <p>Foundations of R Programming: The First Course in our Professional Certificate Program in Data Science, providing an introduction to the basics of R programming.</p>
+                <p class="Courseid">From :-classcentral <Span>Enroll Now</Span></p>
+            </a>
+          </div>
+        </div>
+
+
+        <div class="column Python">
+          <a href="https://www.mygreatlearning.com/academy/learn-for-free/courses/python-fundamentals-for-beginners"
+            target="_blank">
+            <div class="content">
+              <img src="coursImg/Explor-Python.jpeg" alt="Python Images" style="width:100%">
+              <h4>Python Fundamentals for Beginners </h4>
+              <p>Enroll in this free Python Fundamentals for Beginners course to enrich your knowledge of various
+                concepts in Python. Learn to solve with programming paradigms for <real-time class=""></real-time>
+              </p>
+              <p class="Courseid">From :-Great Learning <Span>Enroll Now</Span></p>
+          </a>
+        </div>
+      </div>
+
+
+
+
+      <div class="column Java">
+        <a href="https://www.coursera.org/learn/java-introduction" target="_blank">
+          <div class="content">
+            <img src="coursImg/Explor-Java.jpeg" alt="Python Images" style="width:100%">
+            <h4>Introduction to Java</h4>
+            <p>LearnQuest's "Introduction to Java" is a fundamental course within the Core Java Specialization, offering
+              essential Java programming skills.</p>
+            <p class="Courseid">From :-coursera <Span>Enroll Now</Span></p>
+        </a>
+      </div>
+    </div>
+
+
+
+
+    <div class="column DataAnalytics">
+      <a href="https://www.simplilearn.com/learn-data-analytics-for-beginners-skillup">
+        <div class="content">
+          <img
+            src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/282436470/original/3e36718038991354b79e6aab76462c1ba1b8409a/do-data-in-data-analysis-and-data-visualization-through-r-programming-r-studio.jpeg"
+            alt="Python Images" style="width:100%">
+          <h4>Data Analytics Course</h4>
+          <p>This data analytics for beginners is designed to offer a solid foundation for working with various types of data, data visualization for decision making, and data analytics.</p>
+          <p class="Courseid">From :- Scaler<Span>Enroll Now</Span></p>
+      </a>
+    </div>
+  </div>
+
+
+
+
+  <div class="column CLanguage">
+    <a href="https://www.mygreatlearning.com/academy/learn-for-free/courses/c-for-beginners1" target="_blank">
+      <div class="content">
+        <img src="coursImg/Explor-C.jpeg" alt="Python Images" style="width:100%">
+        <h4>C for Beginners</h4>
+        <p>Enroll now in our free course for beginners and gain a solid foundation in C programming fundamentals, from variables and data types to control flow.</p>
+        <p class="Courseid">From :-Great Learning <Span>Enroll Now</Span></p>
+    </a>
+  </div>
+  </div>
+
+
+  <div class="column C++">
+    <a href="https://www.scaler.com/topics/course/cpp-beginners/" target="_blank">
+      <div class="content">
+        <img src="coursImg/Explor-C++.jpeg" alt="Python Images" style="width:100%">
+        <h4>C++ Course: Learn the Essentials</h4>
+        <p>Gain programming expertise with our Free C++ Course! Covering basics to advanced conceptsPerfect for
+          beginners or seasoned programmers looking to enhance their skills.</p>
+        <p class="Courseid">From :-scaler <Span>Enroll Now</Span></p>
+    </a>
+  </div>
+  </div>
+
+
+
+  <div class="column Php">
+    <a href="https://www.mygreatlearning.com/academy/learn-for-free/courses/php" target="_blank">
+      <div class="content">
+        <img src="coursImg/Explor-Php.jpeg" alt="Python Images" style="width:100%">
+        <h4>PHP for Beginners</h4>
+        <p>Enroll in our free PHP course to learn how to code with this popular server-side scripting language<br>.</p>
+        <p class="Courseid">From :-Great Learning <Span>Enroll Now</Span></p>
+    </a>
+  </div>
+  </div>
+
+
+  <div class="column CLanguage">
+    <a href="https://www.coursera.org/learn/c-for-everyone" target="_blank">
+      <div class="content">
+        <img src="coursImg/Explor-C2.jpeg" alt="Python Images" style="width:100%">
+        <h4>C Programming for Everyone</h4>
+        <p>C Programming Fundamentals course at the University of California is a valuable addition to the Coding for Everyone: C and C++ Specialization.</p>
+        <p class="Courseid">From :-coursera <Span>Enroll Now</Span></p>
+    </a>
+  </div>
+  </div>
+
+  <div class="column Java">
+    <a href="https://www.mygreatlearning.com/academy/learn-for-free/courses/java-programming" target="_blank">
+      <div class="content">
+        <img src="coursImg/Explor-Java2.jpeg" alt="Python Images" style="width:100%">
+        <h4>Java Programming</h4>
+        <p>This free Java course will introduce you to the world of Java Programming. Explore the fundamentals of Java,
+          like syntax, functions, and arrays.</p>
+        <p class="Courseid">From :-coursera <Span>Enroll Now</Span></p>
+    </a>
+  </div>
+  </div>
+
+
+
+  <div class="column Rprogramming">
+    <a href="https://www.mygreatlearning.com/academy/learn-for-free/courses/introduction-to-r" target="_blank">
+      <div class="content">
+        <img src="coursImg/Explor-R.jpeg" alt="Python Images" style="width:100%">
+        <h4>Introduction to R</h4>
+        <p>Learn the fundamentals of R programming language with Introduction to R course. Discover the power of
+          statistical computing, data analysis, and visualization using R.</p>
+        <p class="Courseid">From :-Great Learning<Span>Enroll Now</Span></p>
+    </a>
+  </div>
+  </div>
+
+  <div class="column SQlMysql">
+    <a href="https://www.mygreatlearning.com/academy/learn-for-free/courses/my-sql-basics" target="_blank">
+      <div class="content">
+        <img src="coursImg/Explor-Sql.jpeg" alt="Python Images" style="width:100%">
+        <h4>My SQL Basics</h4>
+        <p>Enroll in this beginner's MySQL course to gain practical knowledge and boost your career<br>.</p>
+        <p class="Courseid">From :-Great Learning<Span>Enroll Now</Span></p>
+    </a>
+  </div>
+  </div>
+
+
+
+  <div class="column DataAnalytics">
+    <a href="coursImg/Explor-DataAnalytics2.jpeg"
+      target="_blank">
+      <div class="content">
+        <img src="/coursImg/Explor-DataAnalytics.jpeg" alt="Python Images" style="width:100%">
+        <h4>Data Analyst</h4>
+        <p>This Data Analyst course in collaboration with IBM makes you a Data Analytics expert. Our Data Analyst course
+          helps you learn analytics tools and techniques</p>
+        <p class="Courseid">From :- simplilearn<Span>Enroll Now</Span></p>
+    </a>
+  </div>
+  </div>
+
+
+  <div class="column CLanguage">
+    <a href="https://www.scaler.com/topics/c/" target="_blank">
+      <div class="content">
+        <img src="coursImg/Explor-C3.jpeg" alt="Python Images" style="width:100%">
+        <h4>C Tutorial</h4>
+        <p>This C Tutorial is purely made to assist you in starting your programming career with C Language.<br>.</p>
+        <p class="Courseid">From :-scaler <Span>Enroll Now</Span></p>
+    </a>
+  </div>
+  </div>
+
+  <div class="column Python">
+    <a href="https://www.coursera.org/learn/get-started-with-python" target="_blank">
+      <div class="content">
+        <img src="coursImg/Explor-Python3.jpeg" alt="Python Images" style="width:100%">
+        <h4>Python for Everybody Specialization</h4>
+        <p>Get Started with Python" is an integral course within the Google Advanced Data Analytics Professional
+          Certificate<br>.</p>
+        <p class="Courseid">From :-Google <Span>Enroll Now</Span></p>
+    </a>
+  </div>
+  </div>
+
+  <div class="column C++">
+    <a href="https://www.classcentral.com/subject/c-plus-plus" target="_blank">
+      <div class="content">
+        <img src="coursImg/Explor-C++2.jpeg" alt="Python Images" style="width:100%">
+        <h4>C++ Courses and Certifications</h4>
+        <p>Learn C++, earn certificates with free online courses from Stanford, Johns Hopkins, University of Illinois,
+          University of London<br>.</p>
+        <p class="Courseid">From :-classcentral <Span>Enroll Now</Span></p>
+    </a>
+  </div>
+  </div>
+
+
+
+  <div class="column Php">
+    <a href="https://www.simplilearn.com/learn-php-basics-free-course-skillup" target="_blank">
+      <div class="content">
+        <img src="coursImg/Explor-Php2.jpeg" alt="Python Images" style="width:100%">
+        <h4>Introduction to PHP Basics</h4>
+        <p>The Introduction to PHP course will give you a comprehensive understanding of the basics of PHP as well as
+          its advanced concepts</p>
+        <p class="Courseid">From :-Great Learning <Span>Enroll Now</Span></p>
+    </a>
+  </div>
+  </div>
+
+
+  <div class="column SQlMysql">
+    <a href="https://www.mygreatlearning.com/academy/learn-for-free/courses/my-sql-basics" target="_blank">
+      <div class="content">
+        <img src="coursImg/Explor-Sql2.jpeg" alt="Python Images" style="width:100%">
+        <h4>My SQL Basics</h4>
+        <p>Enroll in this beginner's MySQL course to gain practical knowledge and boost your career<br>.</p>
+        <p class="Courseid">From :-Great Learning<Span>Enroll Now</Span></p>
+    </a>
+  </div>
+  </div>
+
+
+  <div class="column Java">
+    <a href="https://www.scaler.com/topics/java/" target="_blank">
+      <div class="content">
+        <img src="coursImg/Explor-Java3.jpeg" alt="Python Images" style="width:100%">
+        <h4>Java Tutorial</h4>
+        <p>Java, as a programming language has been one of the most popular choices among programmers and developers for
+          years.<br>.</p>
+        <p class="Courseid">From :-scaler <Span>Enroll Now</Span></p>
+    </a>
+  </div>
+  </div>
+
+
+
+  <div class="column C++">
+    <a href="https://alison.com/course/introduction-to-c-plus-plus-programming-language" target="_blank">
+      <div class="content">
+        <img src="coursImg/Explor-C++3.jpeg" alt="Python Images" style="width:100%">
+        <h4>Introduction to C++ Programming</h4>
+        <p>In this free online course, learn all about C++ programming concepts and principles, as well as how to use them<br>.</p>
+        <p class="Courseid">From :-alison <Span> Enroll Now</Span></p>
+    </a>
+  </div>
+  </div>
+
+
+  <div class="column Python">
+    <a href="https://www.codecademy.com/catalog/language/python" target="_blank">
+      <div class="content">
+        <img src="coursImg/Explor-Python2.jpeg" alt="Python Images" style="width:100%">
+        <h4>Python With Free Certificate</h4>
+        <p>Python is a general-purpose, versatile, and powerful programming language. It a great first language
+          because Python code is concise and easy to read.</p>
+        <p class="Courseid">From :-codecademy <Span>Enroll Now</Span></p>
+    </a>
+  </div>
+  </div>
+
+
+
+  <div class="column DataAnalytics">
+    <a href="" target="_blank">
+      <div class="content">
+        <img
+          src="coursImg/Explor-DataAnalytics3.jpeg"
+          alt="Python Images" style="width:100%">
+        <h4>Introduction to Analytics</h4>
+        <p>Learn Analytics from basics in this free online training. Free Digital marketing course is taught hands-on by
+          experts. Learn Spectrum of Analytics</p>
+        <p class="Courseid">From :- Great Learning<Span>Enroll Now</Span></p>
+    </a>
+  </div>
+  </div>
+
+  <div class="column Rprogramming">
+    <a href="https://www.simplilearn.com/r-programming-free-course-skillup" target="_blank">
+      <div class="content">
+        <img src="coursImg/Explor-R2.jpeg" alt="Python Images" style="width:100%">
+        <h4>R Programming for Beginners</h4>
+        <p>Learn R programming with this free course. This course will take you through R programming basics first
+          followed by advanced topics.</p>
+        <p class="Courseid">From :-simplilearn <Span>Enroll Now</Span></p>
+    </a>
+  </div>
+  </div>
+
+  <div class="column Php">
+    <a href="https://www.educative.io/courses/learn-php-from-scratch" target="_blank">
+      <div class="content">
+        <img src="coursImg/Explor-Php3.jpeg" alt="Python Images" style="width:100%">
+        <h4>Learn PHP from Scratch</h4>
+        <p>This highly interactive course introduces you to fundamental programming concepts in PHP, one of the most
+          popular languages in the world. </p>
+        <p class="Courseid">From :-educative <Span>Enroll Now</Span></p>
+    </a>
+  </div>
+  </div>
+
+
+  <div class="column SQlMysql">
+    <a href="https://www.mygreatlearning.com/academy/learn-for-free/courses/my-sql-basics" target="_blank">
+      <div class="content">
+        <img src="coursImg/Explor-Sql3.jpeg" alt="Python Images" style="width:100%">
+        <h4>My SQL Basics</h4>
+        <p>Enroll in this beginner's MySQL course to gain practical knowledge and boost your career<br>.</p>
+        <p class="Courseid">From :-Great Learning<Span>Enroll Now</Span></p>
+    </a>
+  </div>
+  </div>
+
+
+
+
+  </div>
+
+
+  </div>
+  <div class="credit">Made with &#10084; by <a href="#">Learning Jay</a></div>
+
+
+  <footer class="footer-distributed">
+    <div class="footer-left">
+      <h3>Course<span>Seeker</span></h3>
+      <p class="footer-links">
+        <a href="index.html" class="link-1">Home</a>
+        <a href="ExploreCourses.html">All Cources</a>
+        <a href="#">Our Team</a>
+      </p>
+      <p class="footer-company-name">Course Seeker © 2023</p>
+    </div>
+    <div class="footer-center">
+      <div>
+        <i class='bx bx-map' style='color:#000000'></i>
+        <p><span>Malegaon</span> Nashik, Maharashtra</p>
+      </div>
+      <div>
+        <i class='bx bxs-phone' style='color:#000000'></i>
+        <p>+91 9209389015 &amp;</p>
+        <p>8888903250</p>
+      </div>
+      <div>
+        <i class='bx bx-envelope' style='color:#000000'></i>
+        <p><a href="mailto:support@company.com">RJcoder@Gmail.com</a></p>
+      </div>
+    </div>
+    <div class="footer-right">
+      <p class="footer-company-about">
+        <span>About the company</span>
+        Course Seeker is an online learning platform with a diverse catalog of courses, making education accessible to
+        all.
+      </p>
+      <div class="footer-icons">
+        <a href="https://www.linkedin.com/in/jayesh-patil-405411282/" target="_blank"><i
+            class='bx bxl-linkedin bx-tada bx-rotate-270' style='color:#000000; font-size: 30px;'></i></a>
+        <a href="https://github.com/Jayeshpatil9869?tab=overview&from=2023-04-01&to=2023-04-30" target="_blank"><i
+            class='bx bxl-github bx-tada bx-rotate-270' style='color:#000000; font-size: 30px;'></i></a>
+        <a href="https://twitter.com/Jayeshpatil1553" target="_blank"><i class='bx bxl-twitter bx-tada bx-rotate-270'
+            style='color:#000000; font-size: 30px;'></i></a>
+        <a href="#" target="_blank"><i class='bx bxl-discord-alt bx-rotate-270 bx-tada'
+            style='color:#000000; font-size: 30px;'></i></a>
+      </div>
+    </div>
+  </footer>
+
+
+
+  <script src="Js/ExploreCourses.Js"></script>
+  <script src="Js/script.js"></script>
+
+</body>
+
+</html>
